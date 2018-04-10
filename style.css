@@ -112,7 +112,7 @@ h3 {
 	opacity: 0;
 }
 
-#kanin {
+#kanin-test {
 	width: 8.59vw;
 	height: 22.39vw;
 	background-image: url(images/kanin.svg);
@@ -129,7 +129,7 @@ h3 {
 	animation-timing-function: ease-out;
 }
 
-#jaeger {
+#jaeger-test {
 	width: 16.92vw;
 	height: 17.70vw;
 	background-image: url(images/jaeger.svg);
