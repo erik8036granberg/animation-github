@@ -234,6 +234,15 @@ h3 {
 	display: none;
 }
 
+/* spil-slutning */
+
+#slut-du-vinder-skilt {}
+
+#slut-du-vinder-skilt {}
+
+#slut-spil-igen-knap {}
+
+#slut-afslut-spil-knap {}
 
 /* Valg af taktik */
 
@@ -376,7 +385,7 @@ h3 {
 	width: 26.04vw;
 	height: 28.64vw;
 	background-image: url(images/kaninspritesheet.svg);
-	background-size: 1200% 600%;
+	background-size: 1200% 800%;
 }
 
 .kanin_hop_fremad {
@@ -477,31 +486,89 @@ Hvis ny position???
 /* kanin bevæger sig hen over marken (container) */
 
 .kanin_hen-over-marken {
-	top: 23.5vw;
-	left: 6vw;
+	top: 17vw;
+	left: 1vw;
 	animation-name: kanin_hen-over-markene_kf;
-	animation-duration: 1s;
+	animation-duration: 10s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
 }
 
-@keyframes kanin_hen-over-marken_kf {
+@keyframes kanin_hen-over-markene_kf {
 	0% {
-		transform: translateX(0vw) translateY(0vw)
+		transform: translateX(5vw) translateY(7vw) scale(1);
 	}
+	8% {
+		transform: translateX(5vw) translateY(7vw) scale(1);
+	}
+	12% {
+		transform: translateX(10vw) translateY(5vw) scale(1);
+	}
+	20% {
+		transform: translateX(15vw) translateY(5vw) scale(1);
+	}
+	28% {
+		transform: translateX(15vw) translateY(6vw) scale(1);
+	}
+	35% {
+		transform: translateX(15vw) translateY(6vw) scale(1);
 
+	}
+	42% {
+		transform: translateX(15vw) translateY(6vw) scale(1);
+	}
+	45% {}
+	50% {
+		transform: translateX(20vw) translateY(8vw) scale(0.8);
+		z-index: 25;
+	}
+	55% {
+		transform: translateX(20vw) translateY(8vw) scale(0.8);
+		z-index: 25;
+	}
+	60% {
+		transform: translateX(22vw) translateY(10vw) scale(0.7);
+		z-index: 25;
+	}
+	65% {
+		transform: translateX(22vw) translateY(10vw) scale(0.7);
+		z-index: 25;
+	}
+	70% {
+		transform: translateX(20vw) translateY(0) scale(0.7);
+		z-index: 25;
+	}
+	75% {
+		transform: translateX(20vw) translateY(0) scale(0.7);
+		z-index: 25;
+	}
+	80% {
+		transform: translateX(18vw) translateY(-2vw) scale(0.6);
+		z-index: 25;
+	}
+	85% {
+		transform: translateX(18vw) translateY(-2vw) scale(0.6);
+		z-index: 25;
+	}
+	90% {
+		transform: translateX(20vw) translateY(-3vw) scale(0.6);
+		z-index: 25;
+	}
 	100% {
-		transform: translateX(0vw) translateY(0vw)
+		transform: translateX(20vw) translateY(-3vw) scale(0.6);
+		z-index: 25;
 	}
 }
 
 /* kanin hopper hen over marken (sprite) */
 
 .kanin_hop-paa-mark {
-	animation-name: kanin_hop-mod-mark_kf;
+	animation-name: kanin_hop-paa-mark_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(12);
+	animation-iteration-count: 5;
+	animation-fill-mode: forwards;
 }
 
 @keyframes kanin_hop-paa-mark_kf {
@@ -549,7 +616,7 @@ Hvis ny position???
 	width: 26.04vw;
 	height: 31.25vw;
 	background-image: url(images/jaegerspritesheet.svg);
-	background-size: 1400% 300%;
+	background-size: 1400% 600%;
 }
 
 /* jæger drikker af flaske (sprite) */
@@ -609,12 +676,21 @@ Hvis ny position???
 	}
 }
 
-/* spil-slutning */
+/* jæger skyder (sprite) */
 
-#slut-du-vinder-skilt {}
+.jaeger_skyder {
+	animation-name: jaeger_skyder_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(14);
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+}
 
-#slut-du-vinder-skilt {}
-
-#slut-spil-igen-knap {}
-
-#slut-afslut-spil-knap {}
+@keyframes jaeger_skyder_kf {
+	0% {
+		background-position: 0 -500%;
+	}
+	100% {
+		background-position: -1000% -500%;
+	}
+}
