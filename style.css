@@ -137,23 +137,65 @@ h3 {
 
 /* Kanin bliver skudt - blodsplat */
 
-#blod-splat_container {}
+#blod-splat_container {
+	position: absolute;
+	width: 20.83vw;
+	height: 20.83vw;
+	top: 50vw;
+	left: 50vw;
+	z-index: 35;
+}
 
-#blod-splat_sprite {}
+#blod-splat_sprite {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+	background-image: url(images/blodspritesheet.svg);
+	background-size: 1000% 100%;
+}
 
-.blod-splat_animation {}
+.blod-splat_animation {
+	animation-name: blod-splat_animation_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(10);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes blod-splat_animation_kf {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -1000% 0;
+	}
+}
 
 
 /* Kanin bliver skudt - kopi af kaninsprite */
 
-#afskudt-hovede_container {}
+#afskudt-hovede_container {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+	top: 20vw;
+	left: 20vw;
+	z-index: 35;
+}
 
 .afskudt-hovede_flyv {}
 
-#afskudt-hovede_sprite {}
+#afskudt-hovede_sprite {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+	background-image: url(images/kaninspritesheet.svg);
+	background-size: 0 700%;
+}
 
-.afskudt-hovede_drej-rund {}
-
+.afskudt-hovede_drej-rund {
+	transform: rotate(360deg);
+}
 
 /* Vindue bliver smadret */
 
@@ -680,9 +722,9 @@ Hvis ny position???
 
 .jaeger_skyder {
 	animation-name: jaeger_skyder_kf;
-	animation-duration: 2s;
+	animation-duration: 1.5s;
 	animation-timing-function: steps(14);
-	animation-iteration-count: infinite;
+	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
@@ -691,6 +733,6 @@ Hvis ny position???
 		background-position: 0 -500%;
 	}
 	100% {
-		background-position: -1000% -500%;
+		background-position: -1400% -500%;
 	}
 }
