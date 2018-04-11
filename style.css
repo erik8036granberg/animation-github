@@ -134,7 +134,63 @@ h3 {
 	opacity: 0;
 }
 
-/* Start-spil-grafik*/
+
+/* Kanin bliver skudt - blodsplat */
+
+#blod-splat_container {}
+
+#blod-splat_sprite {}
+
+.blod-splat_animation {}
+
+
+/* Kanin bliver skudt - kopi af kaninsprite */
+
+#afskudt-hovede_container {}
+
+.afskudt-hovede_flyv {}
+
+#afskudt-hovede_sprite {}
+
+.afskudt-hovede_drej-rund {}
+
+
+/* Vindue bliver smadret */
+
+#vindue_container {}
+
+#vindue_sprite {}
+
+.vindue smadrer {}
+
+
+/* Spil-del */
+
+#spil_infoskilt {}
+
+#spil_ok-knap {}
+
+#spil_gulerod-1 {}
+
+#spil_gulerod-2 {}
+
+#spil_gulerod-3 {}
+
+#spil_gulerod-4 {}
+
+#spil_gulerod-5 {}
+
+#spil_gulerod-6 {}
+
+#spil_gulerod-7 {}
+
+#spil_scoreboard {}
+
+#spil_timer {}
+
+
+
+/* Start-spil-grafik og game over*/
 
 #start_knap {
 	width: 18.22vw;
@@ -177,6 +233,15 @@ h3 {
 	opacity: 0.85;
 	display: none;
 }
+
+
+/* Valg af taktik */
+
+#taktik-valg-skilt {}
+
+#taktik-valg-knap-a {}
+
+#taktik-valg-knap-b {}
 
 
 /* Røg "animation" */
@@ -259,6 +324,8 @@ h3 {
 	}
 }
 
+/* - - - - - - - figurer - - - - - - - -*/
+
 /* kanin */
 
 #kanin_container {
@@ -329,14 +396,14 @@ h3 {
 	}
 }
 
-/* kanin står første sted - (container) */
+/* kanin position bag træ - (container) */
 
 .kanin_position_enter {
 	top: 17vw;
 	left: 1vw;
 }
 
-/* kanin står første sted - (container) */
+/* kanin position bag træ - (sprite) */
 
 .kanin_staar {
 	background-position: 0 0;
@@ -387,9 +454,18 @@ h3 {
 
 /* kanin er hoppet ud på stien - (container) */
 
+/*
+
+Hvis ny position???
 .kanin_position-mod-mark {
 	top: 23.5vw;
 	left: 6vw;
+}
+*/
+
+.kanin_position-mod-mark {
+	top: 17vw;
+	left: 1vw;
 }
 
 /* kanin vender mod marken - (sprite) */
@@ -398,9 +474,11 @@ h3 {
 	background-position: 0 -100%;
 }
 
-/* kanin bevæger sig hen over marken (sprite) */
+/* kanin bevæger sig hen over marken (container) */
 
 .kanin_hen-over-marken {
+	top: 23.5vw;
+	left: 6vw;
 	animation-name: kanin_hen-over-markene_kf;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
@@ -412,12 +490,9 @@ h3 {
 	0% {
 		transform: translateX(0vw) translateY(0vw)
 	}
-	70% {
-		transform: translateX(0vw) translateY(0vw)
-	}
 
 	100% {
-		transform: translateX(5vw) translateY(6.5vw)
+		transform: translateX(0vw) translateY(0vw)
 	}
 }
 
@@ -533,3 +608,13 @@ h3 {
 		background-position: -1000% -200%;
 	}
 }
+
+/* spil-slutning */
+
+#slut-du-vinder-skilt {}
+
+#slut-du-vinder-skilt {}
+
+#slut-spil-igen-knap {}
+
+#slut-afslut-spil-knap {}
