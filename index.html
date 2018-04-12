@@ -10,10 +10,20 @@
 </head>
 
 <body class="skjuloverflow">
+	<div id="soemmaatte_knapper">
+		<button id="knap_1_startskaerm">startskærm</button>
+		<button id="knap_2_kanin_hop_ind">Kanin hopper ind</button>
+		<button id="knap_3_jaeger_drikker">Jæger drikker</button>
+		<button id="knap_4_jaeger_falder_i_soevn">Jæger falder i søvn</button>
+		<button id="knap_5_jaeger_sover">Jæger sover</button>
+		<button id="knap_6_kanin_blinker">Kanin blinker</button>
+		<button id="knap_7_taktikvalg">Taktikvalg</button>
+
+	</div>
 	<div id="scene">
-		<div id="start_knap"></div>
-		<div id="start_skilt"></div>
-		<div id="start_nedtoning"></div>
+		<div id="start_knap" class="skjult"></div>
+		<div id="start_skilt" class="skjult"></div>
+		<div id="start_nedtoning" class="skjult"></div>
 		<div id="baggrund-buske"></div>
 		<div id="kanin_container">
 			<div id="kanin_sprite"></div>
@@ -25,8 +35,8 @@
 			</div>
 		</div>
 		<div id="baggrund-mark"></div>
-		<div id="roeg"></div>
-		<div id="roeg-2"></div>
+		<div id="roeg "></div>
+		<div id="roeg-2 "></div>
 		<div id="baggrund-bjerge"></div>
 		<div id="blod-splat_container">
 			<div id="blod-splat_sprite"></div>
@@ -38,7 +48,7 @@
 			<div id="vindue_sprite"></div>
 		</div>
 		<div id="spil_infoskilt"></div>
-		<div id="spil_ok-knap"></div>
+		<div id="spil_ok-knap "></div>
 		<div id="spil_gulerod-1"></div>
 		<div id="spil_gulerod-2"></div>
 		<div id="spil_gulerod-3"></div>
@@ -48,13 +58,18 @@
 		<div id="spil_gulerod-7"></div>
 		<div id="spil_scoreboard"></div>
 		<div id="spil_timer"></div>
-		<div id="taktik-valg-skilt"></div>
+		<div id="taktik-valg-skilt" class="skjult"></div>
 		<div id="taktik-valg-knap-a"></div>
 		<div id="taktik-valg-knap-b"></div>
 		<div id="slut-du-vinder-skilt"></div>
 		<div id="slut-spil-igen-knap"></div>
 		<div id="slut-afslut-spil-knap"></div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.js">
+
+
+	</script>
+	<script src="kj_script.js"></script>
 </body>
 
 </html>
