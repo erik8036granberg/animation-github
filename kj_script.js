@@ -37,6 +37,7 @@ function startskaerm() {
 	$("#knap_5_jaeger_sover").on("click", jaeger_sover);
 	$("#knap_6_kanin_blinker").on("click", kanin_blinker);
 	$("#knap_7_taktikvalg").on("click", taktikvalg);
+	$("#knap_8_kanin_hopper_frem").on("click", kanin_hopper_frem);
 
 	// Jæger sidder på kasse
 	$("#jaeger_container").addClass("jaeger_sidder");
@@ -69,10 +70,10 @@ function jaeger_drikker() {
 	console.log("jaeger_drikker");
 
 	//	Fjern tidligere klasser og sæt stilframes
-	$("#kanin_container").removeClass("kanin_ind_fra_siden");
 	$("#kanin_container").addClass("kanin_bag_trae");
-	$("#kanin_sprite").removeClass("kanin_hop_fremad");
+	$("#kanin_container").removeClass("kanin_ind_fra_siden");
 	$("#kanin_sprite").addClass("kanin_staar");
+	$("#kanin_sprite").removeClass("kanin_hop_fremad");
 
 	// Start sprite-animation: Jægerdrikker
 	$("#jaeger_sprite").removeClass("jaeger_sidder_stille");
@@ -115,6 +116,26 @@ function taktikvalg() {
 	console.log("taktikvalg");
 
 	//	Taktikvalg-skilt vises
-	$("taktik-valg-skilt").removeClass("skjult");
-	$("taktik-valg-skilt").addClass("synlig");
+	$("#taktik-valg-skilt").removeClass("skjult");
+	$("#taktik-valg-skilt").addClass("synlig");
+	$("#start_nedtoning").removeClass("skjult");
+	$("#start_nedtoning").addClass("synlig");
+}
+
+// .valget er truffet
+
+function kanin_hopper_frem() {
+	console.log("kanin_hopper_frem");
+
+	//	Taktikvalg-skilt skjules
+	$("#taktik-valg-skilt").addClass("skjult");
+	$("#taktik-valg-skilt").removeClass("synlig");
+	$("#start_nedtoning").addClass("skjult");
+	$("#start_nedtoning").removeClass("synlig");
+
+	// Start flytte-animation: kanin_et_hop_til_hoejre
+	$("#kanin_container").addClass("kanin_et_hop_til_hoejre");
+
+	// Start sprite-animation: kanin_drej_i_luften
+	$("#kanin_sprite").addClass("kanin_drej_i_luften");
 }

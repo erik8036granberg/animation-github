@@ -310,10 +310,11 @@ h3 {
 #taktik-valg-skilt {
 	width: 100vw;
 	height: 56.25vw;
-	background-image: url(images/valg.svg);
+	background-image: url(images/taktikvalg.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
+	z-index: 150;
 }
 
 #taktik-valg-knap-a {}
@@ -494,41 +495,42 @@ h3 {
 	background-position: 0 0;
 }
 
-
 /* kanin bevæger sig et hop til højre (container) */
 
-.kanin_et-hop-til-hoejre {
-	animation-name: kanin_et-hop-til-hoejre_kf;
+.kanin_et_hop_til_hoejre {
+	animation-name: kanin_et_hop_til_hoejre_kf;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
 }
 
-@keyframes kanin_et-hop-til-hoejre_kf {
+@keyframes kanin_et_hop_til_hoejre_kf {
 	0% {
-		transform: translateX(0vw) translateY(0vw)
+		top: 17vw;
+		left: 1vw;
 	}
 	70% {
-		transform: translateX(0vw) translateY(0vw)
+		top: 20vw;
+		left: 4vw;
 	}
-
 	100% {
-		transform: translateX(5vw) translateY(6.5vw)
+		top: 23.5vw;
+		left: 6vw;
 	}
 }
 
 /* kaninen drejer i luften imens (sprite) */
 
-.kanin_drej-i-luften {
-	animation-name: kanin_drej-i-luften_kf;
-	animation-duration: 2s;
+.kanin_drej_i_luften {
+	animation-name: kanin_drej_i_luften_kf;
+	animation-duration: 1s;
 	animation-timing-function: steps(12);
-	animation-iteration-count: 1;
+	animation-iteration-count: 2;
 	animation-fill-mode: forwards;
 }
 
-@keyframes kanin_drej-i-luften_kf {
+@keyframes kanin_drej_i_luften_kf {
 	0% {
 		background-position: 0 -200%;
 	}
@@ -537,34 +539,23 @@ h3 {
 	}
 }
 
-/* kanin er hoppet ud på stien - (container) */
-
-/*
-
-Hvis ny position???
-.kanin_position-mod-mark {
-	top: 23.5vw;
-	left: 6vw;
-}
-*/
-
-.kanin_position-mod-mark {
+.kanin_position_mod_mark {
 	top: 17vw;
 	left: 1vw;
 }
 
 /* kanin vender mod marken - (sprite) */
 
-.kanin_staar-mod-mark {
+.kanin_staar_mod_mark {
 	background-position: 0 -100%;
 }
 
 /* kanin bevæger sig hen over marken (container) */
 
-.kanin_hen-over-marken {
+.kanin_hen_over_mark {
 	top: 17vw;
 	left: 1vw;
-	animation-name: kanin_hen-over-markene_kf;
+	animation-name: kanin_hen_over_mark_kf;
 	animation-duration: 10s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
@@ -572,7 +563,7 @@ Hvis ny position???
 	z-index: 50;
 }
 
-@keyframes kanin_hen-over-markene_kf {
+@keyframes kanin_hen_over_mark_kf {
 	0% {
 		transform: translateX(5vw) translateY(7vw) scale(1);
 	}
@@ -640,7 +631,7 @@ Hvis ny position???
 
 /* kanin hopper hen over marken (sprite) */
 
-.kanin_hop-paa-mark {
+.kanin_hop_paa_mark {
 	animation-name: kanin_hop-paa-mark_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(12);
@@ -648,7 +639,7 @@ Hvis ny position???
 	animation-fill-mode: forwards;
 }
 
-@keyframes kanin_hop-paa-mark_kf {
+@keyframes kanin_hop_paa_mark_kf {
 	0% {
 		background-position: 0 -100%;
 	}
