@@ -32,10 +32,10 @@ h3 {
 	height: 2vw;
 	position: absolute;
 	z-index: 200;
+	display: none;
 }
 
-
-/* scene og baggrund */
+/* - - - - - - - scene og baggrund  - - - - - - - - */
 
 #scene {
 	width: 100vw;
@@ -145,183 +145,6 @@ h3 {
 	opacity: 0;
 }
 
-
-/* Kanin bliver skudt - blodsplat */
-
-#blod-splat_container {
-	position: absolute;
-	width: 20.83vw;
-	height: 20.83vw;
-	top: 50vw;
-	left: 50vw;
-	z-index: 35;
-}
-
-#blod-splat_sprite {
-	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
-	background-image: url(images/blodspritesheet.svg);
-	background-size: 1000% 100%;
-}
-
-.blod-splat_animation {
-	animation-name: blod-splat_animation_kf;
-	animation-duration: 2s;
-	animation-timing-function: steps(10);
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-}
-
-@keyframes blod-splat_animation_kf {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: -1000% 0;
-	}
-}
-
-
-/* Kanin bliver skudt - kopi af kaninsprite */
-
-#afskudt-hovede_container {
-	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
-	top: 20vw;
-	left: 20vw;
-	z-index: 35;
-}
-
-.afskudt-hovede_flyv {}
-
-#afskudt-hovede_sprite {
-	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
-	background-image: url(images/kaninspritesheet.svg);
-	background-size: 0 700%;
-}
-
-.afskudt-hovede_drej-rund {
-	transform: rotate(360deg);
-}
-
-/* Vindue bliver smadret */
-
-#vindue_container {}
-
-#vindue_sprite {}
-
-.vindue smadrer {}
-
-
-/* Spil-del */
-
-#spil_infoskilt {}
-
-#spil_ok-knap {}
-
-#spil_gulerod-1 {}
-
-#spil_gulerod-2 {}
-
-#spil_gulerod-3 {}
-
-#spil_gulerod-4 {}
-
-#spil_gulerod-5 {}
-
-#spil_gulerod-6 {}
-
-#spil_gulerod-7 {}
-
-#spil_scoreboard {}
-
-#spil_timer {}
-
-
-
-/* Start-spil-grafik og game over*/
-
-#start_knap {
-	width: 18.22vw;
-	height: 7.81vw;
-	top: 33.5vw;
-	left: 41.02vw;
-	background-image: url(images/start_knap.svg);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	position: absolute;
-	z-index: 55;
-	animation-name: start_knap_blink_kf;
-	animation-duration: 3s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-out;
-	z-index: 150;
-}
-
-#start_skilt {
-	width: 57.81vw;
-	height: 39.06vw;
-	top: 3.77vw;
-	left: 20.31vw;
-	background-image: url(images/start_skilt.svg);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	position: absolute;
-	z-index: 145;
-}
-
-#start_nedtoning {
-	width: 100vw;
-	height: 56.25vw;
-	top: 0;
-	left: 0;
-	background-color: #fff;
-	position: absolute;
-	z-index: 45;
-	opacity: 0.85;
-	z-index: 140;
-}
-
-.skjult {
-	display: none;
-}
-
-.synlig {
-	display: block;
-}
-
-
-/* spil-slutning */
-
-#slut-du-vinder-skilt {}
-
-#slut-du-vinder-skilt {}
-
-#slut-spil-igen-knap {}
-
-#slut-afslut-spil-knap {}
-
-/* Valg af taktik */
-
-#taktik-valg-skilt {
-	width: 100vw;
-	height: 56.25vw;
-	background-image: url(images/taktikvalg.svg);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	position: absolute;
-	z-index: 150;
-}
-
-#taktik-valg-knap-a {}
-
-#taktik-valg-knap-b {}
-
-
 /* Røg "animation" */
 
 @keyframes roeg_kf {
@@ -381,8 +204,74 @@ h3 {
 	}
 }
 
+/* - - - - - - - figurer - - - - - - - - */
 
-/* Startgrafik pulserende knap */
+/* kanin container */
+
+#kanin_container {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+}
+
+/* kanin sprite */
+
+#kanin_sprite {
+	width: 26.04vw;
+	height: 28.64vw;
+	background-image: url(images/kaninspritesheet.svg);
+	background-size: 1200% 800%;
+}
+
+/* jæger container */
+
+#jaeger_container {
+	position: absolute;
+	width: 26.04vw;
+	height: 31.25vw;
+}
+
+/* jæger sprite */
+
+#jaeger_sprite {
+	width: 26.04vw;
+	height: 31.25vw;
+	background-image: url(images/jaegerspritesheet.svg);
+	background-size: 1400% 600%;
+}
+
+/* - - - - - - - scene: startskaerm - - - - - - - - */
+
+#start_skilt {
+	width: 57.81vw;
+	height: 39.06vw;
+	top: 3.77vw;
+	left: 20.31vw;
+	background-image: url(images/start_skilt.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 145;
+}
+
+#start_knap {
+	width: 18.22vw;
+	height: 7.81vw;
+	top: 30vw;
+	left: 22vw;
+	background-image: url(images/start_knap.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 55;
+	animation-name: start_knap_blink_kf;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	z-index: 150;
+}
+
+/* start_knap animation */
 
 @keyframes start_knap_blink_kf {
 	0% {
@@ -402,19 +291,50 @@ h3 {
 	}
 }
 
-/* - - - - - - - figurer - - - - - - - -*/
+#start_knap:hover {}
 
-/* kanin */
-
-#kanin_container {
+#nedtoning {
+	width: 100vw;
+	height: 56.25vw;
+	top: 0;
+	left: 0;
+	background-color: #fff;
 	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
+	z-index: 45;
+	opacity: 0.85;
+	z-index: 140;
 }
+
+.skjult {
+	display: none;
+}
+
+.synlig {
+	display: block;
+}
+
+/* jæger sidder på kasse (container) */
+
+.jaeger_sidder {
+	top: 12vw;
+	left: 67.5vw;
+	z-index: 50;
+}
+
+/* jæger sidder stille (sprite) */
+
+.jaeger_sidder_stille {
+	background-position: 0 0;
+}
+
+
+/* - - - - - - - scene: start_klik_paa_knap - - - - - - - - */
+
+/* - - - - - - - scene: kanin_hop_ind - - - - - - - - */
 
 /* kanin ind (container) */
 
-.kanin_ind-fra-siden {
+.kanin_ind_fra_siden {
 	top: 17vw;
 	left: 1vw;
 	z-index: 35;
@@ -424,7 +344,6 @@ h3 {
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
 }
-
 
 @keyframes kanin_ind_fra_siden_kf {
 	0% {
@@ -457,13 +376,6 @@ h3 {
 
 /* kanin hopper ind - (sprite) */
 
-#kanin_sprite {
-	width: 26.04vw;
-	height: 28.64vw;
-	background-image: url(images/kaninspritesheet.svg);
-	background-size: 1200% 800%;
-}
-
 .kanin_hop_fremad {
 	animation-name: kanin_hop_fremad_kf;
 	animation-duration: 1s;
@@ -481,6 +393,8 @@ h3 {
 	}
 }
 
+/* - - - - - - - scene: jaeger_drikker - - - - - - - - */
+
 /* kanin position bag træ - (container) */
 
 .kanin_bag_trae {
@@ -489,13 +403,115 @@ h3 {
 	z-index: 35;
 }
 
-/* kanin position bag træ - (sprite) */
+/* kanin stilbillede - (sprite) */
 
 .kanin_staar {
 	background-position: 0 0;
 }
 
-/* kanin bevæger sig et hop til højre (container) */
+
+/* jæger drikker af flaske (sprite) */
+
+.jaeger_drikker {
+	animation-name: jaeger_drikker_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(14);
+	animation-iteration-count: 3;
+	animation-fill-mode: forwards;
+}
+
+@keyframes jaeger_drikker_kf {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -1400% 0;
+	}
+}
+
+/* - - - - - - - scene: jaeger_falder_i_soevn - - - - - - - - */
+
+/* jæger falder i søvn (sprite) */
+
+.jaeger_falder_i_soevn {
+	animation-name: jaeger_falder_i_soevn_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(10);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes jaeger_falder_i_soevn_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1000% -100%;
+	}
+}
+
+/* - - - - - - - scene: jaeger_sover - - - - - - - - */
+
+/* jæger sover (sprite) */
+
+.jaeger_sover {
+	animation-name: jaeger_sover_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(10);
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+}
+
+@keyframes jaeger_sover_kf {
+	0% {
+		background-position: 0 -200%;
+	}
+	100% {
+		background-position: -1000% -200%;
+	}
+}
+
+/* kanin blinker med øjnene (sprite) */
+
+.kanin_blinker {
+	animation-name: kanin_blinker_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(8);
+	animation-iteration-count: infinite;
+}
+
+@keyframes kanin_blinker_kf {
+	0% {
+		background-position: 0 -300%;
+	}
+	100% {
+		background-position: -800% -300%;
+	}
+}
+
+/* - - - - - - - scene: taktikvalg - - - - - - - - */
+
+#taktik-valg-skilt {
+	width: 100vw;
+	height: 56.25vw;
+	background-image: url(images/taktikvalg.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 150;
+}
+
+#taktik-valg-knap-a {
+	width: 6.51vw;
+	height: 5.98vw;
+	z-index: 150;
+}
+
+#taktik-valg-knap-b {}
+
+/* - - - - - - - scene: kanin_hopper_frem - - - - - - - - */
+
+/* kanin hopper til højre (container) */
 
 .kanin_et_hop_til_hoejre {
 	animation-name: kanin_et_hop_til_hoejre_kf;
@@ -526,7 +542,7 @@ h3 {
 	animation-name: kanin_drej_i_luften_kf;
 	animation-duration: 1s;
 	animation-timing-function: steps(12);
-	animation-iteration-count: 2;
+	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
@@ -539,9 +555,14 @@ h3 {
 	}
 }
 
+/* - - - - - - - scene: kanin_staar_mod_marken - - - - - - - - */
+
+/* kanin vender mod marken - (container) */
+
 .kanin_position_mod_mark {
 	top: 17vw;
 	left: 1vw;
+
 }
 
 /* kanin vender mod marken - (sprite) */
@@ -549,6 +570,34 @@ h3 {
 .kanin_staar_mod_mark {
 	background-position: 0 -100%;
 }
+
+/* - - - - - - - scene: kanin_hop_ind - - - - - - - - */
+
+/* - - - - Kanin Still-frames - - - - */
+
+/* kanin stilbillede - (sprite) */
+
+.kanin_glad {
+	background-position: 0 -400%;
+}
+
+/* kanin stilbillede - (sprite) */
+
+.kanin_bange {
+	background-position: 0 -500%;
+}
+
+/* kanin stilbillede - (sprite) */
+
+.kanin_uden_hoved {
+	background-position: 0 -600%;
+}
+
+.kanin_uden_krop {
+	background-position: 0 -700%;
+}
+
+
 
 /* kanin bevæger sig hen over marken (container) */
 
@@ -648,111 +697,6 @@ h3 {
 	}
 }
 
-/* kanin blinker med øjnene */
-
-.kanin_blinker {
-	animation-name: kanin_blinker_kf;
-	animation-duration: 2s;
-	animation-timing-function: steps(8);
-	animation-iteration-count: infinite;
-}
-
-@keyframes kanin_blinker_kf {
-	0% {
-		background-position: 0 -300%;
-	}
-	100% {
-		background-position: -800% -300%;
-	}
-}
-
-/* jæger container */
-
-#jaeger_container {
-	position: absolute;
-	width: 26.04vw;
-	height: 31.25vw;
-}
-
-/* jæger sprite */
-
-#jaeger_sprite {
-	width: 26.04vw;
-	height: 31.25vw;
-	background-image: url(images/jaegerspritesheet.svg);
-	background-size: 1400% 600%;
-}
-
-/* jæger sidder på kasse (container) */
-
-.jaeger_sidder {
-	top: 12vw;
-	left: 67.5vw;
-	z-index: 50;
-}
-
-.jaeger_sidder_stille {
-	background-position: 0 0;
-}
-
-
-/* jæger drikker af flaske (sprite) */
-
-.jaeger_drikker {
-	animation-name: jaeger_drikker_kf;
-	animation-duration: 2s;
-	animation-timing-function: steps(14);
-	animation-iteration-count: 3;
-	animation-fill-mode: forwards;
-}
-
-@keyframes jaeger_drikker_kf {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: -1400% 0;
-	}
-}
-
-/* jæger falder i søvn (sprite) */
-
-.jaeger_falder_i_soevn {
-	animation-name: jaeger_falder_i_soevn_kf;
-	animation-duration: 2s;
-	animation-timing-function: steps(10);
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-}
-
-@keyframes jaeger_falder_i_soevn_kf {
-	0% {
-		background-position: 0 -100%;
-	}
-	100% {
-		background-position: -1000% -100%;
-	}
-}
-
-/* jæger sover (sprite) */
-
-.jaeger_sover {
-	animation-name: jaeger_sover_kf;
-	animation-duration: 2s;
-	animation-timing-function: steps(10);
-	animation-iteration-count: infinite;
-	animation-fill-mode: forwards;
-}
-
-@keyframes jaeger_sover_kf {
-	0% {
-		background-position: 0 -200%;
-	}
-	100% {
-		background-position: -1000% -200%;
-	}
-}
-
 /* jæger skyder (sprite) */
 
 .jaeger_skyder {
@@ -771,3 +715,111 @@ h3 {
 		background-position: -1400% -500%;
 	}
 }
+
+/* Kanin bliver skudt - blodsplat */
+
+#blod-splat_container {
+	position: absolute;
+	width: 20.83vw;
+	height: 20.83vw;
+	top: 50vw;
+	left: 50vw;
+	z-index: 35;
+}
+
+#blod-splat_sprite {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+	background-image: url(images/blodspritesheet.svg);
+	background-size: 1000% 100%;
+}
+
+.blod-splat_animation {
+	animation-name: blod-splat_animation_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(10);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes blod-splat_animation_kf {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -1000% 0;
+	}
+}
+
+
+/* Kanin bliver skudt - kopi af kaninsprite */
+
+#afskudt-hovede_container {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+	top: 20vw;
+	left: 20vw;
+	z-index: 35;
+}
+
+.afskudt-hovede_flyv {}
+
+#afskudt-hovede_sprite {
+	position: absolute;
+	width: 26.04vw;
+	height: 28.64vw;
+	background-image: url(images/kaninspritesheet.svg);
+	background-size: 0 700%;
+}
+
+.afskudt-hovede_drej-rund {
+	transform: rotate(360deg);
+}
+
+
+/* spil-slutning */
+
+#slut-du-vinder-skilt {}
+
+#slut-du-vinder-skilt {}
+
+#slut-spil-igen-knap {}
+
+#slut-afslut-spil-knap {}
+
+/* - - - - - - - til højre ben - - - - - - - - */
+
+/* Vindue bliver smadret */
+
+#vindue_container {}
+
+#vindue_sprite {}
+
+.vindue smadrer {}
+
+
+/* Spil-del */
+
+#spil_infoskilt {}
+
+#spil_ok-knap {}
+
+#spil_gulerod-1 {}
+
+#spil_gulerod-2 {}
+
+#spil_gulerod-3 {}
+
+#spil_gulerod-4 {}
+
+#spil_gulerod-5 {}
+
+#spil_gulerod-6 {}
+
+#spil_gulerod-7 {}
+
+#spil_scoreboard {}
+
+#spil_timer {}
