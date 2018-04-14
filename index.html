@@ -11,15 +11,19 @@
 
 <body class="skjuloverflow">
 	<div id="soemmaatte_knapper">
-		<button id="knap_1_startskaerm">startskærm</button>
-		<button id="knap_2_kanin_hop_ind">Kanin hopper ind</button>
-		<button id="knap_3_jaeger_drikker">Jæger drikker</button>
-		<button id="knap_4_jaeger_falder_i_soevn">Jæger falder i søvn</button>
-		<button id="knap_5_jaeger_sover">Jæger sover</button>
-		<button id="knap_6_kanin_blinker">Kanin blinker</button>
-		<button id="knap_7_taktikvalg">Taktikvalg</button>
-		<button id="knap_8_kanin_hopper_frem">Kanin hopper frem</button>
-
+		<button id="knap_kanin_hop_ind">Kanin_hop_ind</button>
+		<button id="knap_jaeger_drikker">Jæger drikker</button>
+		<button id="knap_jaeger_falder_i_soevn">Jæger falder i søvn</button>
+		<button id="knap_jaeger_sover">Jæger sover</button>
+		<button id="knap_taktikvalg">Taktikvalg</button>
+		<button id="knap_taktikvalg_klik_paa_knap">Taktikvalg knaplyd</button>
+		<button id="knap_kanin_hopper_frem">Kanin hopper frem</button>
+		<button id="knap_kanin_mod_mark">Kanin står mod mark</button>
+		<button id="knap_kanin_mark_hop_1">kanin hop 1</button>
+		<button id="knap_kanin_mark_hop_1_efter">kanin efter hop 1</button>
+		<button id="knap_kanin_mark_hop_2">kanin hop 2</button>
+		<button id="knap_kanin_mark_hop_2_efter">kanin efter hop 2</button>
+		<button id="knap_kanin_mark_hop_3">kanin hop 3</button>
 	</div>
 	<div id="scene">
 		<div id="start_skilt" class="skjult">
@@ -27,46 +31,57 @@
 		</div>
 		<div id="start_knap" class="skjult"></div>
 		<div id="nedtoning" class="skjult"></div>
-		<div id="baggrund-buske"></div>
+		<div id="baggrund_buske"></div>
 		<div id="kanin_container">
 			<div id="kanin_sprite"></div>
 		</div>
 		<div id="sten"></div>
-		<div id="baggrund-trae"></div>
+		<div id="baggrund_trae"></div>
 		<div id="jaeger_container">
 			<div id="jaeger_sprite">
 			</div>
 		</div>
-		<div id="baggrund-mark"></div>
+		<div id="baggrund_mark"></div>
 		<div id="roeg"></div>
-		<div id="roeg-2"></div>
-		<div id="baggrund-bjerge"></div>
-		<div id="blod-splat_container">
-			<div id="blod-splat_sprite"></div>
+		<div id="roeg_2"></div>
+		<div id="baggrund_bjerge"></div>
+		<div id="blod_splat_container">
+			<div id="blod_splat_sprite"></div>
 		</div>
-		<div id="afskudt-hovede_container">
-			<div id="afskudt-hovede_sprite"></div>
+		<div id="afskudt_hovede_container">
+			<div id="afskudt_hovede_sprite"></div>
 		</div>
 		<div id="vindue_container">
 			<div id="vindue_sprite"></div>
 		</div>
 		<div id="spil_infoskilt"></div>
-		<div id="spil_ok-knap"></div>
-		<div id="spil_gulerod-1"></div>
-		<div id="spil_gulerod-2"></div>
-		<div id="spil_gulerod-3"></div>
-		<div id="spil_gulerod-4"></div>
-		<div id="spil_gulerod-5"></div>
-		<div id="spil_gulerod-6"></div>
-		<div id="spil_gulerod-7"></div>
+		<div id="spil_ok_knap"></div>
+		<div id="spil_gulerod_1"></div>
+		<div id="spil_gulerod_2"></div>
+		<div id="spil_gulerod_3"></div>
+		<div id="spil_gulerod_4"></div>
+		<div id="spil_gulerod_5"></div>
+		<div id="spil_gulerod_6"></div>
+		<div id="spil_gulerod_7"></div>
 		<div id="spil_scoreboard"></div>
 		<div id="spil_timer"></div>
-		<div id="taktik-valg-skilt" class="skjult"></div>
-		<div id="taktik-valg-knap-a"></div>
-		<div id="taktik-valg-knap-b"></div>
-		<div id="slut-du-vinder-skilt"></div>
-		<div id="slut-spil-igen-knap"></div>
-		<div id="slut-afslut-spil-knap"></div>
+		<div id="taktikvalg_skilt" class="skjult">
+			<div class="taktikvalg_rubrik">Vælg taktik</div>
+			<div class="taktikvalg_wrapper">
+				<div id="taktikvalg_knap_a"></div>
+				<div class="taktikvalg_tekst">Skal kaninen snige sig hen til gulerødderne?</div>
+			</div>
+			<div class="taktikvalg_wrapper">
+				<div id="taktikvalg_knap_b"></div>
+				<div class="taktikvalg_tekst">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing nonummy?
+				</div>
+			</div>
+		</div>
+
+		<div id="slut_du_vinder_skilt"></div>
+		<div id="slut_spil_igen_knap"></div>
+		<div id="slut_afslut_spil_knap"></div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>

@@ -17,13 +17,19 @@ function startskaerm() {
 	console.log("startskaerm");
 
 	//	Søm-måtte knapper
-	$("#knap_1_startskaerm").on("click", startskaerm);
-	$("#knap_2_kanin_hop_ind").on("click", kanin_hop_ind);
-	$("#knap_3_jaeger_drikker").on("click", jaeger_drikker);
-	$("#knap_4_jaeger_falder_i_soevn").on("click", jaeger_falder_i_soevn);
-	$("#knap_5_jaeger_sover").on("click", jaeger_sover);
-	$("#knap_7_taktikvalg").on("click", taktikvalg);
-	$("#knap_8_kanin_hopper_frem").on("click", kanin_hopper_frem);
+	$("#knap_kanin_hop_ind").on("click", kanin_hop_ind);
+	$("#knap_jaeger_drikker").on("click", jaeger_drikker);
+	$("#knap_jaeger_falder_i_soevn").on("click", jaeger_falder_i_soevn);
+	$("#knap_jaeger_sover").on("click", jaeger_sover);
+	$("#knap_taktikvalg").on("click", taktikvalg);
+	$("#knap_taktikvalg_klik_paa_knap").on("click", taktikvalg_klik_paa_knap);
+	$("#knap_kanin_hopper_frem").on("click", kanin_hopper_frem);
+	$("#knap_kanin_mod_mark").on("click", kanin_mod_mark);
+	$("#knap_kanin_mark_hop_1").on("click", kanin_mark_hop_1);
+	$("#knap_kanin_mark_hop_1_efter").on("click", kanin_mark_hop_1_efter);
+	$("#knap_kanin_mark_hop_2").on("click", kanin_mark_hop_2);
+	$("#knap_kanin_mark_hop_2_efter").on("click", kanin_mark_hop_2_efter);
+	$("#knap_kanin_mark_hop_3").on("click", kanin_mark_hop_3);
 
 	//	Startskærm vises
 	$("#start_skilt").removeClass("skjult");
@@ -50,7 +56,7 @@ function start_klik_paa_knap() {
 	// *** kommer til ***
 
 	//  Når lyden har spillet spillet
-	// *** rettes til lyden har spillet isted for klik ***
+	// *** rettes til lyden har spillet istedet for klik ***
 	$("#start_knap").on("click", kanin_hop_ind);
 }
 
@@ -72,7 +78,7 @@ function kanin_hop_ind() {
 	$("#nedtoning").removeClass("synlig");
 	$("#nedtoning").addClass("skjult");
 
-	// Start flytte-animation: kanin_ind-fra-siden
+	// Start flytte-animation: kanin_ind_fra_siden
 	$("#kanin_container").addClass("kanin_ind_fra_siden");
 
 	// Start sprite-animation: kanin_hop_fremad
@@ -148,14 +154,35 @@ function taktikvalg() {
 	console.log("taktikvalg");
 
 	// Taktik-skilt vises
-	$("#taktik-valg-skilt").removeClass("skjult");
-	$("#taktik-valg-skilt").addClass("synlig");
+	$("#taktikvalg_skilt").removeClass("skjult");
+	$("#taktikvalg_skilt").addClass("synlig");
 
-	// Taktik-knapper vises
+	// Taktik-knapper vises - sammen med taktikskærm
 
 	// Taktik-nedtoning vises
-	$("#start_nedtoning").removeClass("skjult");
-	$("#start_nedtoning").addClass("synlig");
+	$("#nedtoning").removeClass("skjult");
+	$("#nedtoning").addClass("synlig");
+
+	// Baggrundsmusik slutter
+	// Valg-musik starter
+
+	// Der er klikket på knap a
+	$("#start_knap").on("click", taktikvalg_klik_paa_knap);
+
+}
+
+// - - - - -  function taktik_klik_paa_knap - - - - -
+
+function taktikvalg_klik_paa_knap() {
+	console.log("taktik_klik_paa_knap");
+
+	// knaplyd spilles
+	// *** kommer til ***
+
+	//  Når lyden har spillet spillet
+	// *** rettes til lyden har spillet istedet for klik ***
+	$("#start_knap").on("click", kanin_hopper_frem);
+
 }
 
 // .valget er truffet
@@ -165,32 +192,126 @@ function taktikvalg() {
 function kanin_hopper_frem() {
 	console.log("kanin_hopper_frem");
 
-	//	Taktikvalg-skilt skjules
-	$("#taktik-valg-skilt").removeClass("synlig");
-	$("#taktik-valg-skilt").addClass("skjult");
-	$("#start_nedtoning").removeClass("synlig");
-	$("#start_nedtoning").addClass("skjult");
+	// Taktikvalg-skilt skjules
+	$("#taktikvalg_skilt").removeClass("synlig");
+	$("#taktikvalg_skilt").addClass("skjult");
+	$("#nedtoning").removeClass("synlig");
+	$("#nedtoning").addClass("skjult");
 
+	// Valg-musik slutter
+	// Baggrundsmusik begynder
 
-	//	slut blink
-	$("#kanin_sprite").removeClass("kanin_blinker");
+	// Slut contaioner-possition: kanin_bag_trae
+	$("#kanin_container").removeClass("kanin_bag_trae");
 
-	// Start flytte-animation: kanin_et_hop_til_hoejre
+	// Start contaioner-ani: kanin_et_hop_til_hoejre
 	$("#kanin_container").addClass("kanin_et_hop_til_hoejre");
 
-	//	 Start sprite-animation: kanin_drej_i_luften
-	$("#kanin_sprite").addClass("kanin_drej_i_luften");
+	// Slut sprite-ani: kanin_blinker
+	$("#kanin_sprite").removeClass("kanin_blinker");
 
-	$("#kanin_sprite").on("animationend", kanin_mod_mark);
+	// Start sprite-animation: kanin_drej_i_luften
+	$("#kanin_sprite").addClass("kanin_drej_i_luften");
 }
+
+// Når .kanin_et_hop_til_hoejre er færdig
 
 // - - - - -  function kanin_mod_mark - - - - -
 
 function kanin_mod_mark() {
 	console.log("kanin_mod_mark");
 
-	//	 Start sprite-animation: kanin_drej_i_luften
-	$("#kanin_sprite").addClass("kanin_staar_mod_mark");
-	$("#kanin_sprite").removeClass("kanin_drej_i_luften")
+	// Slut contaioner-ani: kanin_et_hop_til_hoejre
+	$("#kanin_container").removeClass("kanin_et_hop_til_hoejre");
 
+	// Begynd container possition: kanin_mod_mark
+	$("#kanin_container").addClass("kanin_mark_possition");
+
+	// Slut sprite-animation: kanin_drej_i_luften
+	$("#kanin_sprite").removeClass("kanin_drej_i_luften");
+
+	// begynd sprite-still: kanin_ryg_til
+	$("#kanin_sprite").addClass("kanin_ryg_til");
+}
+
+// - - - - -  function kanin_mark_hop_1 - - - - -
+
+function kanin_mark_hop_1() {
+	console.log("kanin_mark_hop_1");
+
+	// Slut container possition: kanin_mod_mark
+	$("#kanin_container").removeClass("kanin_mark_possition");
+
+	// Begynd container animation: kanin_mark_move_1
+	$("#kanin_container").addClass("kanin_mark_move_1");
+
+	// Slut sprite-still: kanin_ryg_til
+	$("#kanin_sprite").removeClass("kanin_ryg_til");
+
+	// Start sprite-animation: kanin_mark_hop
+	$("#kanin_sprite").addClass("kanin_mark_hop");
+}
+
+function kanin_mark_hop_1_efter() {
+	console.log("kanin_mark_hop_1_efter");
+
+	// Slut contaioner-ani: kanin_et_hop_til_hoejre
+	$("#kanin_container").removeClass("kanin_mark_move_1");
+
+	// Begynd container possition: kanin_mod_mark
+	$("#kanin_container").addClass("kanin_mark_possition_1");
+
+	// Slut sprite-animation: kanin_drej_i_luften
+	$("#kanin_sprite").removeClass("kanin_mark_hop");
+
+	// begynd sprite-still: kanin_ryg_til
+	$("#kanin_sprite").addClass("kanin_ryg_til");
+}
+
+function kanin_mark_hop_2() {
+	console.log("kanin_mark_hop_2");
+
+	// Slut container possition: kanin_mod_mark
+	$("#kanin_container").removeClass("kanin_mark_possition_1");
+
+	// Begynd container animation: kanin_mark_move_1
+	$("#kanin_container").addClass("kanin_mark_move_2");
+
+	// Slut sprite-still: kanin_ryg_til
+	$("#kanin_sprite").removeClass("kanin_ryg_til");
+
+	// Start sprite-animation: kanin_mark_hop
+	$("#kanin_sprite").addClass("kanin_mark_hop");
+}
+
+function kanin_mark_hop_2_efter() {
+	console.log("kanin_mark_hop_2_efter");
+
+	// Slut contaioner-ani: kanin_et_hop_til_hoejre
+	$("#kanin_container").removeClass("kanin_mark_move_2");
+
+	// Begynd container possition: kanin_mod_mark
+	$("#kanin_container").addClass("kanin_mark_possition_2");
+
+	// Slut sprite-animation: kanin_drej_i_luften
+	$("#kanin_sprite").removeClass("kanin_mark_hop");
+
+	// begynd sprite-still: kanin_ryg_til
+	$("#kanin_sprite").addClass("kanin_ryg_til");
+}
+
+function kanin_mark_hop_3() {
+	console.log("kanin_mark_hop_3");
+
+	// Slut container possition: kanin_mod_mark
+	$("#kanin_container").removeClass("kanin_mark_possition_2");
+
+	// Begynd container animation: kanin_mark_move_1
+	$("#kanin_container").addClass("kanin_mark_move_3");
+
+	// Slut sprite-still: kanin_ryg_til
+	$("#kanin_sprite").removeClass("kanin_ryg_til");
+
+	// Start sprite-animation: kanin_mark_hop
+	$("#kanin_sprite").addClass("kanin_mark_hop");
 }

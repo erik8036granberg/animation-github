@@ -6,6 +6,10 @@ body {
 	box-sizing: border-box;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 .skjuloverflow {
 	overflow: hidden;
 }
@@ -24,6 +28,24 @@ h3 {
 }
 
 
+/* fonts */
+
+@font-face {
+	font-family: 'playbillregular';
+	src: url('fonts/playbill/playbill-webfont.woff2') format('woff2'),
+	url('fonts/playbill/playbill-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'arial_rounded_mt_boldbold';
+	src: url('fonts/arial_rounded/arlrdbd-webfont.woff2') format('woff2'),
+	url('fonts/arial_rounded/arlrdbd-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
 
 /* søm-måtte */
 
@@ -32,7 +54,6 @@ h3 {
 	height: 2vw;
 	position: absolute;
 	z-index: 200;
-	display: none;
 }
 
 /* - - - - - - - scene og baggrund  - - - - - - - - */
@@ -44,10 +65,10 @@ h3 {
 	overflow: hidden;
 }
 
-#baggrund-buske {
+#baggrund_buske {
 	width: 100vw;
 	height: 56.25vw;
-	background-image: url(images/baggrund-buske.svg);
+	background-image: url(images/baggrund_buske.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -57,10 +78,10 @@ h3 {
 }
 
 
-#baggrund-trae {
+#baggrund_trae {
 	width: 100vw;
 	height: 56.25vw;
-	background-image: url(images/baggrund-trae.svg);
+	background-image: url(images/baggrund_trae.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -69,10 +90,10 @@ h3 {
 	z-index: 30;
 }
 
-#baggrund-mark {
+#baggrund_mark {
 	width: 100vw;
 	height: 56.25vw;
-	background-image: url(images/baggrund-mark.svg);
+	background-image: url(images/baggrund_mark.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -81,10 +102,10 @@ h3 {
 	z-index: 20;
 }
 
-#baggrund-bjerge {
+#baggrund_bjerge {
 	width: 100vw;
 	height: 56.25vw;
-	background-image: url(images/baggrund-bjerge.svg);
+	background-image: url(images/baggrund_bjerge.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -127,17 +148,17 @@ h3 {
 	opacity: 0;
 }
 
-#roeg-2 {
+#roeg_2 {
 	width: 32.29vw;
 	height: 9.21vw;
-	background-image: url(images/roeg-2.svg);
+	background-image: url(images/roeg_2.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
 	top: -1vw;
 	left: 72vw;
 	z-index: 10;
-	animation-name: roeg-2_kf;
+	animation-name: roeg_2_kf;
 	transform-origin: bottom left;
 	animation-duration: 25s;
 	animation-iteration-count: infinite;
@@ -174,7 +195,7 @@ h3 {
 	}
 }
 
-@keyframes roeg-2_kf {
+@keyframes roeg_2_kf {
 	0% {
 		opacity: 0;
 		transform: rotate(0deg) scaleX(1)
@@ -327,8 +348,6 @@ h3 {
 	background-position: 0 0;
 }
 
-
-/* - - - - - - - scene: start_klik_paa_knap - - - - - - - - */
 
 /* - - - - - - - scene: kanin_hop_ind - - - - - - - - */
 
@@ -491,29 +510,66 @@ h3 {
 
 /* - - - - - - - scene: taktikvalg - - - - - - - - */
 
-#taktik-valg-skilt {
-	width: 100vw;
-	height: 56.25vw;
-	background-image: url(images/taktikvalg.svg);
+#taktikvalg_skilt {
+	width: 57.81vw;
+	height: 39.06vw;
+	top: 3.77vw;
+	left: 20.31vw;
+	padding: 7vw 10vw;
+	background-image: url(images/taktikvalg_skilt.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
-	z-index: 150;
+	z-index: 145;
 }
 
-#taktik-valg-knap-a {
-	width: 6.51vw;
+.taktikvalg_rubrik {
+	font-family: 'playbillregular';
+	font-size: 7vw;
+	text-transform: uppercase;
+	color: #42210b;
+	margin: 0 0 1vw;
+
+}
+
+.taktikvalg_wrapper {
+	display: flex;
+	margin: 0 0 2vw;
+}
+
+#taktikvalg_knap_a {
+	min-width: 6.51vw;
 	height: 5.98vw;
-	z-index: 150;
+	background-image: url(images/taktikvalg_knap_a.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
-#taktik-valg-knap-b {}
+#taktikvalg_knap_b {
+	min-width: 6.51vw;
+	height: 5.98vw;
+	background-image: url(images/taktikvalg_knap_b.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.taktikvalg_tekst {
+	font-family: 'arial_rounded_mt_boldbold';
+	font-size: 2vw;
+	color: #000;
+	padding-left: 1vw;
+}
+
+#taktikvalg_knap_b {}
 
 /* - - - - - - - scene: kanin_hopper_frem - - - - - - - - */
 
 /* kanin hopper til højre (container) */
 
 .kanin_et_hop_til_hoejre {
+	top: 17vw;
+	left: 1vw;
+	z-index: 35;
 	animation-name: kanin_et_hop_til_hoejre_kf;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
@@ -559,136 +615,69 @@ h3 {
 
 /* kanin vender mod marken - (container) */
 
-.kanin_position_mod_mark {
-	top: 17vw;
-	left: 1vw;
-
+.kanin_mark_possition {
+	top: 23.5vw;
+	left: 6vw;
+	z-index: 50;
 }
 
 /* kanin vender mod marken - (sprite) */
 
-.kanin_staar_mod_mark {
+.kanin_ryg_til {
 	background-position: 0 -100%;
 }
 
-/* - - - - - - - scene: kanin_hop_ind - - - - - - - - */
 
-/* - - - - Kanin Still-frames - - - - */
+/* - - - - - - - scene: kanin_mark_hop_1 - - - - - - - - */
 
-/* kanin stilbillede - (sprite) */
+/* kanin_mark_hop_1 (container) */
 
-.kanin_glad {
-	background-position: 0 -400%;
-}
-
-/* kanin stilbillede - (sprite) */
-
-.kanin_bange {
-	background-position: 0 -500%;
-}
-
-/* kanin stilbillede - (sprite) */
-
-.kanin_uden_hoved {
-	background-position: 0 -600%;
-}
-
-.kanin_uden_krop {
-	background-position: 0 -700%;
-}
-
-
-
-/* kanin bevæger sig hen over marken (container) */
-
-.kanin_hen_over_mark {
-	top: 17vw;
-	left: 1vw;
-	animation-name: kanin_hen_over_mark_kf;
-	animation-duration: 10s;
+.kanin_mark_move_1 {
+	z-index: 50;
+	animation-name: kanin_mark_hop_1_kf;
+	animation-duration: 1.5s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_hop_1_kf {
+	0% {
+		top: 23.5vw;
+		left: 6vw;
+	}
+	25% {
+		top: 23.5vw;
+		left: 6vw;
+	}
+	60% {
+		top: 19vw;
+		left: 13vw;
+	}
+	100% {
+		top: 19vw;
+		left: 13vw;
+	}
+}
+
+.kanin_mark_possition_1 {
+	top: 19vw;
+	left: 13vw;
 	z-index: 50;
 }
 
-@keyframes kanin_hen_over_mark_kf {
-	0% {
-		transform: translateX(5vw) translateY(7vw) scale(1);
-	}
-	8% {
-		transform: translateX(5vw) translateY(7vw) scale(1);
-	}
-	12% {
-		transform: translateX(10vw) translateY(5vw) scale(1);
-	}
-	20% {
-		transform: translateX(15vw) translateY(5vw) scale(1);
-	}
-	28% {
-		transform: translateX(15vw) translateY(6vw) scale(1);
-	}
-	35% {
-		transform: translateX(15vw) translateY(6vw) scale(1);
-
-	}
-	42% {
-		transform: translateX(15vw) translateY(6vw) scale(1);
-	}
-	45% {}
-	50% {
-		transform: translateX(20vw) translateY(8vw) scale(0.8);
-		z-index: 25;
-	}
-	55% {
-		transform: translateX(20vw) translateY(8vw) scale(0.8);
-		z-index: 25;
-	}
-	60% {
-		transform: translateX(22vw) translateY(10vw) scale(0.7);
-		z-index: 25;
-	}
-	65% {
-		transform: translateX(22vw) translateY(10vw) scale(0.7);
-		z-index: 25;
-	}
-	70% {
-		transform: translateX(20vw) translateY(0) scale(0.7);
-		z-index: 25;
-	}
-	75% {
-		transform: translateX(20vw) translateY(0) scale(0.7);
-		z-index: 25;
-	}
-	80% {
-		transform: translateX(18vw) translateY(-2vw) scale(0.6);
-		z-index: 25;
-	}
-	85% {
-		transform: translateX(18vw) translateY(-2vw) scale(0.6);
-		z-index: 25;
-	}
-	90% {
-		transform: translateX(20vw) translateY(-3vw) scale(0.6);
-		z-index: 25;
-	}
-	100% {
-		transform: translateX(20vw) translateY(-3vw) scale(0.6);
-		z-index: 25;
-	}
-}
 
 /* kanin hopper hen over marken (sprite) */
 
-.kanin_hop_paa_mark {
-	animation-name: kanin_hop-paa-mark_kf;
-	animation-duration: 2s;
+.kanin_mark_hop {
+	animation-name: kanin_mark_hop_kf;
+	animation-duration: 1.5s;
 	animation-timing-function: steps(12);
-	animation-iteration-count: 5;
+	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
-@keyframes kanin_hop_paa_mark_kf {
+@keyframes kanin_mark_hop_kf {
 	0% {
 		background-position: 0 -100%;
 	}
@@ -696,6 +685,88 @@ h3 {
 		background-position: -1200% -100%;
 	}
 }
+
+
+/* - - - - - - - scene: kanin_mark_hop_2 - - - - - - - - */
+
+/* kanin_mark_move_2 (container) */
+
+.kanin_mark_move_2 {
+	animation-name: kanin_mark_move_2_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_move_2_kf {
+	0% {
+		top: 19vw;
+		left: 13vw;
+		z-index: 50;
+	}
+	25% {
+		top: 19vw;
+		left: 13vw;
+		z-index: 50;
+	}
+	60% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+	}
+	100% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+	}
+}
+
+.kanin_mark_possition_2 {
+	top: 20vw;
+	left: 20vw;
+	z-index: 25;
+}
+
+/* - - - - - - - scene: kanin_mark_hop_2 - - - - - - - - */
+
+/* kanin_mark_move_3 (container) */
+
+.kanin_mark_move_3 {
+	z-index: 25;
+	animation-name: kanin_mark_move_3_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_move_3_kf {
+	0% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+	}
+	25% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+	}
+	60% {
+		top: 23vw;
+		left: 22vw;
+		z-index: 25;
+		transform: scale(0.8);
+	}
+	100% {
+		top: 23vw;
+		left: 22vw;
+		z-index: 25;
+		transform: scale(0.8);
+	}
+}
+
+/* - - - - - - - scene: xxxxx - - - - - - - - */
 
 /* jæger skyder (sprite) */
 
@@ -727,7 +798,7 @@ h3 {
 	z-index: 35;
 }
 
-#blod-splat_sprite {
+#blod_splat_sprite {
 	position: absolute;
 	width: 26.04vw;
 	height: 28.64vw;
@@ -735,15 +806,15 @@ h3 {
 	background-size: 1000% 100%;
 }
 
-.blod-splat_animation {
-	animation-name: blod-splat_animation_kf;
+.blod_splat_animation {
+	animation-name: blod_splat_animation_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(10);
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
-@keyframes blod-splat_animation_kf {
+@keyframes blod_splat_animation_kf {
 	0% {
 		background-position: 0 0;
 	}
@@ -755,7 +826,7 @@ h3 {
 
 /* Kanin bliver skudt - kopi af kaninsprite */
 
-#afskudt-hovede_container {
+#afskudt_hovede_container {
 	position: absolute;
 	width: 26.04vw;
 	height: 28.64vw;
@@ -764,9 +835,9 @@ h3 {
 	z-index: 35;
 }
 
-.afskudt-hovede_flyv {}
+.afskudt_hovede_flyv {}
 
-#afskudt-hovede_sprite {
+#afskudt_hovede_sprite {
 	position: absolute;
 	width: 26.04vw;
 	height: 28.64vw;
@@ -774,20 +845,41 @@ h3 {
 	background-size: 0 700%;
 }
 
-.afskudt-hovede_drej-rund {
+.afskudt_hovede_drej_rund {
 	transform: rotate(360deg);
 }
 
+/* kanin stilbillede - (sprite) */
+
+.kanin_glad {
+	background-position: 0 -400%;
+}
+
+/* kanin stilbillede - (sprite) */
+
+.kanin_bange {
+	background-position: 0 -500%;
+}
+
+/* kanin stilbillede - (sprite) */
+
+.kanin_uden_hoved {
+	background-position: 0 -600%;
+}
+
+.kanin_uden_krop {
+	background-position: 0 -700%;
+}
 
 /* spil-slutning */
 
-#slut-du-vinder-skilt {}
+#slut_du_vinder_skilt {}
 
-#slut-du-vinder-skilt {}
+#slut_du_vinder_skilt {}
 
-#slut-spil-igen-knap {}
+#slut_spil_igen-knap {}
 
-#slut-afslut-spil-knap {}
+#slut_afslut_spil_knap {}
 
 /* - - - - - - - til højre ben - - - - - - - - */
 
@@ -797,7 +889,7 @@ h3 {
 
 #vindue_sprite {}
 
-.vindue smadrer {}
+.vindue_smadrer {}
 
 
 /* Spil-del */
@@ -806,19 +898,19 @@ h3 {
 
 #spil_ok-knap {}
 
-#spil_gulerod-1 {}
+#spil_gulerod_1 {}
 
-#spil_gulerod-2 {}
+#spil_gulerod_2 {}
 
-#spil_gulerod-3 {}
+#spil_gulerod_3 {}
 
-#spil_gulerod-4 {}
+#spil_gulerod_4 {}
 
-#spil_gulerod-5 {}
+#spil_gulerod_5 {}
 
-#spil_gulerod-6 {}
+#spil_gulerod_6 {}
 
-#spil_gulerod-7 {}
+#spil_gulerod_7 {}
 
 #spil_scoreboard {}
 
