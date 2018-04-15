@@ -750,10 +750,10 @@ function kaninMobil2Ringer() {
 	// begynd contaioner-animation: kanin_mobil_ryster_2
 	$("#kanin_container").addClass("kanin_mobil_ryster_2");
 
-	// Start sprite-animation: jaeger_sover
+	// slut sprite-animation: jaeger_sover
 	$("#jaeger_sprite").removeClass("jaeger_sover");
 
-	// Stop sprite-animation: jaeger_falder_i_soevn
+	// start sprite-animation: jaeger_vaagner
 	$("#jaeger_sprite").addClass("jaeger_vaagner");
 
 	// - - -
@@ -771,15 +771,60 @@ function MobilRygerFrem() {
 
 	// - - -
 
+	// slut contaioner-animation: kanin_mobil_ryster_2
+	$("#kanin_container").removeClass("kanin_mobil_ryster_2");
 
-	// begynd contaioner-animation: kanin_mobil_ryster_2
+	// begynd contaioner-animation: mobil ryger frem
 	$("#mobil_container").addClass("mobil_ryger_frem");
 
-	// Start sprite-animation: jaeger_sover
-	$("#mobil_sprite").addClass("jaeger_sover");
 
+	// slut sprite-animation: jaeger_vaagner
+	$("#jaeger_sprite").removeClass("jaeger_vaagner");
+
+	// start sprite-still: jaeger_sur
+	$("#jaeger_sprite").addClass("jaeger_sur");
 
 	// - - -
 
 	// Når flytte-animation er færdig
+
+	// når mobil ryster er færdig
+	$("#mobil_container").on("animationend", mobilRyster);
+}
+
+function mobilRyster() {
+	console.log("mobilRyster");
+
+	$("#mobil_container").off("animationend", mobilRyster);
+
+	// - - -
+
+	// begynd contaioner-animation: mobil ryger frem
+	$("#mobil_container").removeClass("mobil_ryger_frem");
+
+	// begynd contaioner-animation: mobil possition
+	$("#mobil_container").addClass("mobil_ryster_possition");
+
+	// begynd contaioner-animation: kanin_ryster
+	$("#mobil_container").addClass("mobil_ryster")
+
+	// - - -
+
+	$("#mobil_container").on("animationend", jaegerSkyder);
+
+}
+
+function jaegerSkyder() {
+	console.log("jaegerSkyder");
+
+	$("#mobil_container").off("animationend", jaegerSkyder)
+
+	// - - -
+
+	// slut sprite-still: jaeger_sur
+	$("#jaeger_sprite").removeClass("jaeger_sur");
+
+	// start sprite-animation: jaeger_falder_i_soevn
+	$("#jaeger_sprite").addClass("jaeger_skyder");
+
 }
