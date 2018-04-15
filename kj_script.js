@@ -808,6 +808,9 @@ function mobilRyster() {
 	// begynd contaioner-animation: kanin_ryster
 	$("#mobil_container").addClass("mobil_ryster")
 
+	// start container-animation: censur_container_possition
+	$("#censur_container").addClass("censur_possition");
+
 	// - - -
 
 	$("#mobil_container").on("animationend", jaegerSkyder);
@@ -820,6 +823,9 @@ function jaegerSkyder() {
 	$("#mobil_container").off("animationend", jaegerSkyder)
 
 	// - - -
+
+	// start container-animation: censur_cover
+	$("#censur_container").addClass("censur_cover");
 
 	// slut sprite-still: jaeger_sur
 	$("#jaeger_sprite").removeClass("jaeger_sur");

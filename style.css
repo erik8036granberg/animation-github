@@ -1480,7 +1480,7 @@ h3 {
 	animation-name: jaeger_skyder_kf;
 	animation-duration: 1.5s;
 	animation-timing-function: steps(14);
-	animation-iteration-count: 2;
+	animation-iteration-count: 5;
 	animation-fill-mode: forwards;
 	animation-delay: 1s;
 }
@@ -1494,7 +1494,70 @@ h3 {
 	}
 }
 
+#censur_container {
+	position: absolute;
+	width: 15.62vw;
+	height: 13.02vw;
+}
 
+#censur_sprite {
+	position: absolute;
+	width: 15.62vw;
+	height: 13.02vw;
+	background-image: url(images/censur.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.censur_cover {
+	z-index: 150;
+	top: 22vw;
+	left: 27vw;
+	animation-name: censur_cover_kf;
+	animation-duration: 5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+}
+
+@keyframes censur_cover_kf {
+	0% {
+		top: 22vw;
+		left: 27vw;
+		z-index: 0;
+	}
+	1% {
+		top: 22vw;
+		left: 27vw;
+		z-index: 150;
+		transform: scale(1);
+	}
+	25% {
+		top: 22vw;
+		left: 27vw;
+		z-index: 150;
+		transform: scale(1) rotate(10deg);
+	}
+	75% {
+		top: 22vw;
+		left: 27vw;
+		z-index: 150;
+		transform: scale(1.15) rotate(-10deg);
+	}
+	100% {
+		top: 22vw;
+		left: 27vw;
+		z-index: 150;
+		transform: scale(1.25);
+	}
+}
+
+
+
+
+
+/* - - - - - - - scene: xxx - - - - - - - - */
 
 /* Kanin bliver skudt - blodsplat */
 
