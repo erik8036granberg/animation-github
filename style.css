@@ -412,6 +412,8 @@ h3 {
 	}
 }
 
+
+
 /* - - - - - - - scene: jaeger_drikker - - - - - - - - */
 
 /* kanin position bag træ - (container) */
@@ -496,7 +498,7 @@ h3 {
 	animation-name: kanin_blinker_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(8);
-	animation-iteration-count: infinite;
+	animation-iteration-count: 2;
 }
 
 @keyframes kanin_blinker_kf {
@@ -722,13 +724,32 @@ h3 {
 	}
 }
 
+/* kanin hopper hen over marken (sprite) */
+
+.kanin_mark_hop_2 {
+	animation-name: kanin_mark_hop_2_kf;
+	animation-duration: 1.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_hop_2_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1200% -100%;
+	}
+}
+
 .kanin_mark_possition_2 {
 	top: 20vw;
 	left: 20vw;
 	z-index: 25;
 }
 
-/* - - - - - - - scene: kanin_mark_hop_2 - - - - - - - - */
+/* - - - - - - - scene: kanin_mark_hop_3 - - - - - - - - */
 
 /* kanin_mark_move_3 (container) */
 
@@ -764,6 +785,230 @@ h3 {
 		z-index: 25;
 		transform: scale(0.8);
 	}
+}
+
+/* kanin hopper hen over marken (sprite) */
+
+.kanin_mark_hop_3 {
+	animation-name: kanin_mark_hop_3_kf;
+	animation-duration: 1.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_hop_3_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1200% -100%;
+	}
+}
+
+.kanin_mark_possition_3 {
+	top: 23vw;
+	left: 22vw;
+	z-index: 25;
+	transform: scale(0.8);
+}
+
+/* - - - - - - - scene: kanin_mark_hop_4 - - - - - - - - */
+
+/* kanin_mark_move_4 (container) */
+
+.kanin_mark_move_4 {
+	z-index: 25;
+	animation-name: kanin_mark_move_4_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_move_4_kf {
+	0% {
+		top: 23vw;
+		left: 22vw;
+		z-index: 25;
+		transform: scale(0.8);
+	}
+	25% {
+		top: 23vw;
+		left: 22vw;
+		z-index: 25;
+		transform: scale(0.8);
+	}
+	60% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+		transform: scale(0.75);
+	}
+	100% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+		transform: scale(0.75);
+	}
+}
+
+/* kanin hopper hen over marken (sprite) */
+
+.kanin_mark_hop_4 {
+	animation-name: kanin_mark_hop_4_kf;
+	animation-duration: 1.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_hop_4_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1200% -100%;
+	}
+}
+
+.kanin_mark_possition_4 {
+	top: 20vw;
+	left: 20vw;
+	z-index: 25;
+	transform: scale(0.75);
+}
+
+/* - - - - - - - scene: kanin_mark_hop_5 - - - - - - - - */
+
+/* kanin_mark_move_5 (container) */
+
+.kanin_mark_move_5 {
+	z-index: 25;
+	animation-name: kanin_mark_move_5_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_move_5_kf {
+	0% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+		transform: scale(0.75);
+	}
+	25% {
+		top: 20vw;
+		left: 20vw;
+		z-index: 25;
+		transform: scale(0.75);
+	}
+	60% {
+		top: 13vw;
+		left: 18vw;
+		z-index: 25;
+		transform: scale(0.73);
+	}
+	100% {
+		top: 13vw;
+		left: 18vw;
+		z-index: 25;
+		transform: scale(0.73);
+	}
+}
+
+/* kanin hopper hen over marken (sprite) */
+
+.kanin_mark_hop_5 {
+	animation-name: kanin_mark_hop_5_kf;
+	animation-duration: 1.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_hop_5_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1200% -100%;
+	}
+}
+
+.kanin_mark_possition_5 {
+	top: 13vw;
+	left: 18vw;
+	z-index: 25;
+	transform: scale(0.73);
+}
+
+/* - - - - - - - scene: kanin_mark_hop_5 - - - - - - - - */
+
+/* kanin_mark_move_5 (container) */
+
+.kanin_mark_move_6 {
+	z-index: 25;
+	animation-name: kanin_mark_move_6_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_move_6_kf {
+	0% {
+		top: 13vw;
+		left: 18vw;
+		z-index: 25;
+		transform: scale(0.75);
+	}
+	25% {
+		top: 13vw;
+		left: 18vw;
+		z-index: 25;
+		transform: scale(0.75);
+	}
+	60% {
+		top: 11.5vw;
+		left: 22vw;
+		z-index: 25;
+		transform: scale(0.72);
+	}
+	100% {
+		top: 11.5vw;
+		left: 22vw;
+		z-index: 25;
+		transform: scale(0.72);
+	}
+}
+
+/* kanin hopper hen over marken (sprite) */
+
+.kanin_mark_hop_6 {
+	animation-name: kanin_mark_hop_6_kf;
+	animation-duration: 1.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_mark_hop_6_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1200% -100%;
+	}
+}
+
+.kanin_mark_possition_6 {
+	top: 11.5vw;
+	left: 22vw;
+	z-index: 25;
+	transform: scale(0.72);
 }
 
 /* - - - - - - - scene: xxxxx - - - - - - - - */
