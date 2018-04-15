@@ -312,7 +312,10 @@ h3 {
 	}
 }
 
-#start_knap:hover {}
+#start_knap:hover {
+	background-image: url(images/start_knap_hover.svg);
+	transition: background-image 0.75s;
+}
 
 #nedtoning {
 	width: 100vw;
@@ -547,12 +550,18 @@ h3 {
 	background-repeat: no-repeat;
 }
 
+#taktikvalg_knap_a:hover {
+	background-image: url(images/taktikvalg_knap_a_hover.svg);
+	transition: background-image 0.75s;
+}
+
 #taktikvalg_knap_b {
 	min-width: 6.51vw;
 	height: 5.98vw;
 	background-image: url(images/taktikvalg_knap_b.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
+	opacity: 0.15;
 }
 
 .taktikvalg_tekst {
@@ -562,7 +571,15 @@ h3 {
 	padding-left: 1vw;
 }
 
-#taktikvalg_knap_b {}
+#taktikvalg_tekst_a:hover {
+	color: #fff;
+	transition: color 0.75s;
+}
+
+
+#taktikvalg_tekst_b {
+	opacity: 0.15;
+}
 
 /* - - - - - - - scene: kanin_hopper_frem - - - - - - - - */
 

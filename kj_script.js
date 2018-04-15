@@ -281,6 +281,7 @@ function taktikValg() {
 
 	// Der er klikket på knap a
 	$("#taktikvalg_knap_a").on("click", taktikValgKlikPaaKnap);
+	$("#taktikvalg_tekst_a").on("click", taktikValgKlikPaaKnap);
 
 }
 
@@ -290,6 +291,7 @@ function taktikValgKlikPaaKnap() {
 	console.log("taktikValgKlikPaaKnap");
 
 	$("#taktikvalg_knap_a").off("click", taktikValgKlikPaaKnap);
+	$("#taktikvalg_tekst_a").off("click", taktikValgKlikPaaKnap);
 
 	// - - -
 
