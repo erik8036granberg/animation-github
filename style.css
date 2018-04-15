@@ -279,7 +279,7 @@ h3 {
 	width: 18.22vw;
 	height: 7.81vw;
 	top: 30vw;
-	left: 22vw;
+	left: 20.5vw;
 	background-image: url(images/start_knap.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -440,7 +440,7 @@ h3 {
 	animation-name: jaeger_drikker_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(14);
-	animation-iteration-count: 3;
+	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
@@ -501,7 +501,7 @@ h3 {
 	animation-name: kanin_blinker_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(8);
-	animation-iteration-count: 2;
+	animation-iteration-count: 1;
 }
 
 @keyframes kanin_blinker_kf {
@@ -534,7 +534,6 @@ h3 {
 	text-transform: uppercase;
 	color: #42210b;
 	margin: 0 0 1vw;
-
 }
 
 .taktikvalg_wrapper {
@@ -990,13 +989,13 @@ h3 {
 	}
 	60% {
 		top: 11.5vw;
-		left: 22vw;
+		left: 21vw;
 		z-index: 25;
 		transform: scale(0.72);
 	}
 	100% {
 		top: 11.5vw;
-		left: 22vw;
+		left: 21vw;
 		z-index: 25;
 		transform: scale(0.72);
 	}
@@ -1023,12 +1022,112 @@ h3 {
 
 .kanin_mark_possition_6 {
 	top: 11.5vw;
-	left: 22vw;
+	left: 21vw;
 	z-index: 25;
 	transform: scale(0.72);
 }
 
-/* - - - - - - - scene: xxxxx - - - - - - - - */
+/* - - - - - - - scene: Mobil ringer - - - - - - - - */
+
+/*kanin_mobil_ryster (sprite) */
+
+.kanin_mobil_ryster {
+	z-index: 25;
+	animation-name: kanin_mobil_ryster_kf;
+	animation-duration: 5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+	transform: scale(0.72);
+}
+
+@keyframes kanin_mobil_ryster_kf {
+	0% {
+		transform: rotate(0deg);
+		transform: skewX(0deg);
+		transform: skewY(0deg);
+		transform: translateX(0);
+		transform: translateY(0);
+	}
+	16% {
+		transform: rotate(2deg);
+		transform: skewX(3deg);
+		transform: skewY(2deg);
+		transform: translateX(0.5vw);
+		transform: translateY(-0.5vw);
+	}
+	18% {
+		transform: rotate(-1deg);
+		transform: skewX(1deg);
+		transform: skewY(1deg);
+		transform: translateX(-0.5vw);
+		transform: translateY(0.5vw);
+	}
+	20% {
+		transform: rotate(-1deg);
+		transform: skewX(0deg);
+		transform: skewY(-1deg);
+		transform: translateX(0);
+		transform: translateY(0);
+	}
+	22% {
+		transform: rotate(2deg);
+		transform: skewX(3deg);
+		transform: skewY(-2deg);
+		transform: translateX(0.5vw);
+		transform: translateY(-0.5vw)
+	}
+	25% {
+		transform: rotate(0);
+		transform: skewX(1deg);
+		transform: skewY(-1deg);
+		transform: translateX(0);
+		transform: translateY(0.5vw);
+	}
+	28% {
+		transform: rotate(-4deg);
+		transform: skewX(0deg);
+		transform: skewY(-1deg);
+		transform: translateX(0);
+		transform: translateY(-1vw);
+	}
+	30% {
+		transform: rotate(2deg);
+		transform: skewX(3deg);
+		transform: skewY(2deg);
+		transform: translateX(0.5vw);
+		transform: translateY(-0.5vw)
+	}
+	33% {
+		transform: rotate(2deg);
+		transform: skewX(3deg);
+		transform: skewY(-2deg);
+		transform: translateX(0.5vw);
+		transform: translateY(-0.5vw
+	}
+
+	46% {}
+	48% {}
+	50% {}
+	52% {}
+	55% {}
+	59% {}
+	63% {}
+	66% {}
+
+	76% {}
+	79% {}
+	71% {}
+	83% {}
+	88% {}
+	91% {}
+	97% {}
+	100% {}
+}
+
+
+
+
 
 /* jæger skyder (sprite) */
 

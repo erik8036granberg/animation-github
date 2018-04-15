@@ -426,7 +426,7 @@ function kaninMarkHop1Possition() {
 
 	// - - - trigger
 
-	// Når kanin_ryg_til vises
+	// Når flytte-animation er færdig
 
 	$("#kanin_container").on("animationend", kaninMarkHop2);
 }
@@ -469,7 +469,7 @@ function kaninMarkHop2Possition() {
 	// Begynd container possition: kanin_mod_mark
 	$("#kanin_container").addClass("kanin_mark_possition_2");
 
-	// Slut sprite-animation: kanin_drej_i_luften
+	// Slut sprite-animation: kanin_mark_hop_2
 	$("#kanin_sprite").removeClass("kanin_mark_hop_2");
 
 	// begynd sprite-still: kanin_ryg_til
@@ -477,7 +477,7 @@ function kaninMarkHop2Possition() {
 
 	// - - - trigger
 
-	// Når kanin_ryg_til vises
+	// Når flytte-animation er færdig
 
 	$("#kanin_container").on("animationend", kaninMarkHop3);
 
@@ -521,7 +521,7 @@ function kaninMarkHop3Possition() {
 	// Begynd container possition: kanin_mod_mark
 	$("#kanin_container").addClass("kanin_mark_possition_3");
 
-	// Slut sprite-animation: kanin_drej_i_luften
+	// Slut sprite-animation: kanin_mark_hop_3
 	$("#kanin_sprite").removeClass("kanin_mark_hop_3");
 
 	// begynd sprite-still: kanin_ryg_til
@@ -529,7 +529,7 @@ function kaninMarkHop3Possition() {
 
 	// - - - trigger
 
-	// Når kanin_ryg_til vises
+	// Når flytte-animation er færdig
 
 	$("#kanin_container").on("animationend", kaninMarkHop4);
 }
@@ -537,14 +537,14 @@ function kaninMarkHop3Possition() {
 function kaninMarkHop4() {
 	console.log("kaninMarkHop4");
 
-	$("#kanin_sprite").off("animationend", kaninMarkHop4);
+	$("#kanin_container").off("animationend", kaninMarkHop4);
 
 	// - - -
 
 	// Slut container possition: kanin_mark_possition_3
 	$("#kanin_container").removeClass("kanin_mark_possition_3");
 
-	// Begynd container animation: kanin_mark_move_1
+	// Begynd container animation: kanin_mark_move_4
 	$("#kanin_container").addClass("kanin_mark_move_4");
 
 	// Slut sprite-still: kanin_ryg_til
@@ -572,7 +572,7 @@ function kaninMarkHop4Possition() {
 	// Begynd container possition: kanin_mod_mark
 	$("#kanin_container").addClass("kanin_mark_possition_4");
 
-	// Slut sprite-animation: kanin_drej_i_luften
+	// Slut sprite-animation: kanin_mark_hop_4
 	$("#kanin_sprite").removeClass("kanin_mark_hop_4");
 
 	// begynd sprite-still: kanin_ryg_til
@@ -580,7 +580,7 @@ function kaninMarkHop4Possition() {
 
 	// - - - trigger
 
-	// Når kanin_ryg_til vises
+	// Når flytte-animation er færdig
 
 	$("#kanin_container").on("animationend", kaninMarkHop5);
 }
@@ -595,7 +595,7 @@ function kaninMarkHop5() {
 	// Slut container possition: kanin_mark_possition_3
 	$("#kanin_container").removeClass("kanin_mark_possition_4");
 
-	// Begynd container animation: kanin_mark_move_1
+	// Begynd container animation: kanin_mark_move_5
 	$("#kanin_container").addClass("kanin_mark_move_5");
 
 	// Slut sprite-still: kanin_ryg_til
@@ -623,7 +623,7 @@ function kaninMarkHop5Possition() {
 	// Begynd container possition: kanin_mod_mark
 	$("#kanin_container").addClass("kanin_mark_possition_5");
 
-	// Slut sprite-animation: kanin_drej_i_luften
+	// Slut sprite-animation: kanin_mark_hop_5
 	$("#kanin_sprite").removeClass("kanin_mark_hop_5");
 
 	// begynd sprite-still: kanin_ryg_til
@@ -631,7 +631,7 @@ function kaninMarkHop5Possition() {
 
 	// - - - trigger
 
-	// Når kanin_ryg_til vises
+	// Når flytte-animation er færdig
 
 	$("#kanin_container").on("animationend", kaninMarkHop6);
 }
@@ -647,7 +647,7 @@ function kaninMarkHop6() {
 	// Slut container possition: kanin_mark_possition_3
 	$("#kanin_container").removeClass("kanin_mark_possition_5");
 
-	// Begynd container animation: kanin_mark_move_1
+	// Begynd container animation: kanin_mark_move_6
 	$("#kanin_container").addClass("kanin_mark_move_6");
 
 	// Slut sprite-still: kanin_ryg_til
@@ -655,4 +655,35 @@ function kaninMarkHop6() {
 
 	// Start sprite-animation: kanin_mark_hop
 	$("#kanin_sprite").addClass("kanin_mark_hop_6");
+
+	// - - - trigger
+
+	// kanin_mark_hop er færdig
+	$("#kanin_sprite").on("animationend", kaninMarkHop6Possition);
+}
+
+function kaninMarkHop6Possition() {
+	console.log("kaninMarkHop6Possition");
+
+	$("#kanin_sprite").off("animationend", kaninMarkHop6Possition);
+
+	// - - -
+
+	// Slut contaioner-ani: kanin_mark_move_6
+	$("#kanin_container").removeClass("kanin_mark_move_6");
+
+	// Begynd container possition: kanin_mod_mark
+	$("#kanin_container").addClass("kanin_mark_possition_6");
+
+	// Slut sprite-animation: kanin_mark_hop_6
+	$("#kanin_sprite").removeClass("kanin_mark_hop_6");
+
+	// begynd sprite-still: kanin_ryg_til
+	$("#kanin_sprite").addClass("kanin_ryg_til");
+
+	// - - - trigger
+
+	// Når flytte-animation er færdig
+
+	//	$("#kanin_container").on("animationend", kaninMarkHop6);
 }
