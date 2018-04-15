@@ -681,9 +681,105 @@ function kaninMarkHop6Possition() {
 	// begynd sprite-still: kanin_ryg_til
 	$("#kanin_sprite").addClass("kanin_ryg_til");
 
-	// - - - trigger
+
+	// - - -
 
 	// Når flytte-animation er færdig
 
-	//	$("#kanin_container").on("animationend", kaninMarkHop6);
+	$("#kanin_container").on("animationend", kaninMobilRinger);
+}
+
+function kaninMobilRinger() {
+	console.log("kaninMobilRinger");
+	$("#kanin_container").off("animationend", kaninMobilRinger);
+
+	// - - -
+
+	// begynd: kanin_mobil_size
+	$("#kanin_sprite").addClass("kanin_mobil_size");
+
+	// slut container possition: kanin_mod_mark
+	$("#kanin_container").removeClass("kanin_mark_possition_6")
+
+	// begynd contaioner-animation: kanin_mobil_ryster
+	$("#kanin_container").addClass("kanin_mobil_ryster");
+
+	// - - -
+
+	// Når flytte-animation er færdig
+
+	$("#kanin_container").on("animationend", kaninBange);
+}
+
+function kaninBange() {
+	console.log("kaninBange");
+	$("#kanin_container").off("animationend", kaninBange);
+
+	// - - -
+
+	// stop contaioner-animation: kanin_mobil_ryster
+	$("#kanin_container").removeClass("kanin_mobil_ryster")
+
+	// begynd contaioner-animation: kanin_mobil_ryster_2
+	$("#kanin_container").addClass("kanin_mobil_possition");
+
+	// fjern sprite-still: kanin_ryg_til
+	$("#kanin_sprite").removeClass("kanin_ryg_til");
+
+	// start sprite-still: kanin_bange
+	$("#kanin_sprite").addClass("kanin_bange");
+
+	// Når flytte-animation er færdig
+
+	$("#kanin_sprite").on("animationend", kaninMobil2Ringer);
+
+	kaninMobil2Ringer();
+
+}
+
+function kaninMobil2Ringer() {
+	console.log("kaninMobil2Ringer");
+
+	$("#kanin_sprite").off("animationend", kaninMobil2Ringer);
+
+	// - - -
+
+	// slut contaioner-animation: kanin_mobil_ryster
+	$("#kanin_container").removeClass("kanin_mobil_ryster");
+
+	// begynd contaioner-animation: kanin_mobil_ryster_2
+	$("#kanin_container").addClass("kanin_mobil_ryster_2");
+
+	// Start sprite-animation: jaeger_sover
+	$("#jaeger_sprite").removeClass("jaeger_sover");
+
+	// Stop sprite-animation: jaeger_falder_i_soevn
+	$("#jaeger_sprite").addClass("jaeger_vaagner");
+
+	// - - -
+
+	// Når sprite-animation er færdig
+
+	$("#jaeger_sprite").on("animationend", MobilRygerFrem);
+
+}
+
+function MobilRygerFrem() {
+	console.log("MobilRygerFrem");
+
+	$("#jaeger_sprite").off("animationend", MobilRygerFrem);
+
+	// - - -
+
+
+	// begynd contaioner-animation: kanin_mobil_ryster_2
+	$("#mobil_container").addClass("mobil_ryger_frem");
+
+	// Start sprite-animation: jaeger_sover
+	$("#mobil_sprite").addClass("jaeger_sover");
+
+
+	// - - -
+
+	// Når flytte-animation er færdig
 }

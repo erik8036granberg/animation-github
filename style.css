@@ -1027,107 +1027,331 @@ h3 {
 	transform: scale(0.72);
 }
 
-/* - - - - - - - scene: Mobil ringer - - - - - - - - */
+/* - - - - - - - scene: Kanin Mobil ryster - - - - - - - - */
 
-/*kanin_mobil_ryster (sprite) */
+/*kanin_mobil_position (container) */
+
+.kanin_mobil_possition {
+	top: 11.5vw;
+	left: 21vw;
+	z-index: 25;
+}
+
+/*kanin_mobil_Størrelse (sprite) */
+
+.kanin_mobil_size {
+	transform: scale(0.72);
+	;
+}
 
 .kanin_mobil_ryster {
+	top: 11.5vw;
+	left: 21vw;
 	z-index: 25;
+	z-index: 50;
 	animation-name: kanin_mobil_ryster_kf;
-	animation-duration: 5s;
+	animation-duration: 1.5s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
-	transform: scale(0.72);
 }
 
 @keyframes kanin_mobil_ryster_kf {
 	0% {
-		transform: rotate(0deg);
-		transform: skewX(0deg);
-		transform: skewY(0deg);
-		transform: translateX(0);
-		transform: translateY(0);
+		transform: rotate(0);
 	}
-	16% {
-		transform: rotate(2deg);
-		transform: skewX(3deg);
-		transform: skewY(2deg);
-		transform: translateX(0.5vw);
-		transform: translateY(-0.5vw);
+	5% {
+		transform: rotate(10deg);
 	}
-	18% {
-		transform: rotate(-1deg);
-		transform: skewX(1deg);
-		transform: skewY(1deg);
-		transform: translateX(-0.5vw);
-		transform: translateY(0.5vw);
+	10% {
+		transform: rotate(-15deg);
+	}
+	15% {
+		transform: rotate(10deg);
 	}
 	20% {
-		transform: rotate(-1deg);
-		transform: skewX(0deg);
-		transform: skewY(-1deg);
-		transform: translateX(0);
-		transform: translateY(0);
-	}
-	22% {
-		transform: rotate(2deg);
-		transform: skewX(3deg);
-		transform: skewY(-2deg);
-		transform: translateX(0.5vw);
-		transform: translateY(-0.5vw)
+		transform: rotate(-15deg);
 	}
 	25% {
-		transform: rotate(0);
-		transform: skewX(1deg);
-		transform: skewY(-1deg);
-		transform: translateX(0);
-		transform: translateY(0.5vw);
-	}
-	28% {
-		transform: rotate(-4deg);
-		transform: skewX(0deg);
-		transform: skewY(-1deg);
-		transform: translateX(0);
-		transform: translateY(-1vw);
+		transform: rotate(20deg);
 	}
 	30% {
-		transform: rotate(2deg);
-		transform: skewX(3deg);
-		transform: skewY(2deg);
-		transform: translateX(0.5vw);
-		transform: translateY(-0.5vw)
+		transform: rotate(-10deg);
 	}
-	33% {
-		transform: rotate(2deg);
-		transform: skewX(3deg);
-		transform: skewY(-2deg);
-		transform: translateX(0.5vw);
-		transform: translateY(-0.5vw
+	35% {
+		transform: rotate(10deg);
 	}
-
-	46% {}
-	48% {}
-	50% {}
-	52% {}
-	55% {}
-	59% {}
-	63% {}
-	66% {}
-
-	76% {}
-	79% {}
-	71% {}
-	83% {}
-	88% {}
-	91% {}
-	97% {}
-	100% {}
+	40% {
+		transform: rotate(12deg);
+	}
+	45% {
+		transform: rotate(-10deg);
+	}
+	50% {
+		transform: rotate(3deg);
+	}
+	55% {
+		transform: rotate(0deg);
+	}
+	60% {
+		transform: rotate(10deg);
+	}
+	65% {
+		transform: rotate(-15deg);
+	}
+	70% {
+		transform: rotate(10deg);
+	}
+	74% {
+		transform: rotate(-15deg);
+	}
+	78% {
+		transform: rotate(20deg);
+	}
+	82% {
+		transform: rotate(-10deg);
+	}
+	86% {
+		transform: rotate(10deg);
+	}
+	88% {
+		transform: rotate(12deg);
+	}
+	92% {
+		transform: rotate(-10deg);
+	}
+	95% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
 }
 
 
+/* - - - - - - - scene: Kanin Mobil ryster 2 - - - - - - - - */
 
+/*kanin_mobil_ryster_2 (conatiner) */
 
+.kanin_mobil_ryster_2 {
+	top: 11.5vw;
+	left: 21vw;
+	z-index: 25;
+	z-index: 50;
+	animation-name: kanin_mobil_ryster_2_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+}
+
+@keyframes kanin_mobil_ryster_2_kf {
+	0% {
+		transform: rotate(0);
+	}
+	5% {
+		transform: rotate(10deg);
+	}
+	10% {
+		transform: rotate(-15deg);
+	}
+	15% {
+		transform: rotate(10deg);
+	}
+	20% {
+		transform: rotate(-15deg);
+	}
+	25% {
+		transform: rotate(20deg);
+	}
+	30% {
+		transform: rotate(-10deg);
+	}
+	35% {
+		transform: rotate(10deg);
+	}
+	40% {
+		transform: rotate(12deg);
+	}
+	45% {
+		transform: rotate(-10deg);
+	}
+	50% {
+		transform: rotate(3deg);
+	}
+	55% {
+		transform: rotate(0deg);
+	}
+	60% {
+		transform: rotate(10deg);
+	}
+	65% {
+		transform: rotate(-15deg);
+	}
+	70% {
+		transform: rotate(10deg);
+	}
+	74% {
+		transform: rotate(-15deg);
+	}
+	78% {
+		transform: rotate(20deg);
+	}
+	82% {
+		transform: rotate(-10deg);
+	}
+	86% {
+		transform: rotate(10deg);
+	}
+	88% {
+		transform: rotate(12deg);
+	}
+	92% {
+		transform: rotate(-10deg);
+	}
+	95% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+/* kanin bange - (sprite) */
+
+.kanin_bange {
+	animation-name: kanin_bange_kf;
+	animation-duration: 3s;
+	animation-timing-function: steps(5);
+	animation-iteration-count: 2;
+	animation-fill-mode: forwards;
+}
+
+@keyframes kanin_bange_kf {
+	0% {
+		background-position: 0 -500%;
+	}
+	100% {
+		background-position: -500% -500%;
+	}
+}
+
+/* jæger vågner (sprite) */
+
+.jaeger_vaagner {
+	animation-name: jaeger_vaagner_kf;
+	animation-duration: 2s;
+	animation-timing-function: steps(10);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+
+@keyframes jaeger_vaagner_kf {
+	0% {
+		background-position: 0 -100%;
+	}
+	100% {
+		background-position: -1000% -100%;
+	}
+}
+
+/* - - - - - - - scene: mobil frem - - - - - - - - */
+
+/* jæger skyder (sprite) */
+
+#mobil_container {
+	position: absolute;
+	width: 6.51vw;
+	height: 3.90vw;
+	z-index: 0;
+
+}
+
+#mobil_sprite {
+	position: absolute;
+	width: 6.51vw;
+	height: 3.90vw;
+	background-image: url(images/mobil.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+
+}
+
+.mobil_possition {}
+
+/*mobil ryger frem (contaioner)*/
+
+.mobil_ryger_frem {
+	animation-name: mobil_ryger_frem_kf;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes mobil_ryger_frem_kf {
+	0% {
+		top: 30vw;
+		left: 31vw;
+		z-index: 0;
+		transform: rotate(-90deg);
+	}
+	100% {
+		top: 28vw;
+		left: 32vw;
+		z-index: 25;
+		transform: rotate(-75deg);
+	}
+
+	25% {
+		top: 28vw;
+		left: 34vw;
+		z-index: 25;
+		transform: rotate(-45deg);
+	}
+	50% {
+		top: 30vw;
+		left: 36vw;
+		z-index: 50;
+		transform: rotate(-45deg);
+	}
+
+	70% {
+		top: 32vw;
+		left: 37vw;
+		z-index: 50;
+		transform: rotate(-20deg);
+	}
+	85% {
+		top: 33vw;
+		left: 37vw;
+		z-index: 50;
+		transform: rotate(-20deg);
+	}
+	90% {
+		top: 34vw;
+		left: 39vw;
+		z-index: 50;
+		transform: rotate(0deg);
+	}
+	95% {
+		top: 33.5vw;
+		left: 39vw;
+		z-index: 50;
+		transform: rotate(-20deg);
+	}
+
+	100% {
+		top: 34vw;
+		left: 39.5vw;
+		z-index: 50;
+		transform: rotate(0deg);
+	}
+}
+
+/*mobil riger fre (sprite)*/
 
 /* jæger skyder (sprite) */
 
@@ -1147,6 +1371,8 @@ h3 {
 		background-position: -1400% -500%;
 	}
 }
+
+
 
 /* Kanin bliver skudt - blodsplat */
 
@@ -1214,12 +1440,6 @@ h3 {
 
 .kanin_glad {
 	background-position: 0 -400%;
-}
-
-/* kanin stilbillede - (sprite) */
-
-.kanin_bange {
-	background-position: 0 -500%;
 }
 
 /* kanin stilbillede - (sprite) */
