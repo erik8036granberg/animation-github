@@ -76,28 +76,6 @@ $(window).on("load", startSkaerm);
 function startSkaerm() {
 	console.log("startSkaerm");
 
-	//	Søm-måtte knapper
-	$("#knap_1").on("click", kaninHopInd);
-	$("#knap_2").on("click", jaegerDrikker);
-	$("#knap_3").on("click", jaegerFalderISoevn);
-	$("#knap_4").on("click", jaegerSover);
-	$("#knap_5").on("click", taktikValg);
-	$("#knap_6").on("click", taktikValgKlikPaaKnap);
-	$("#knap_7").on("click", kaninHopperFrem);
-	$("#knap_8").on("click", kaninModMark);
-	$("#knap_9").on("click", kaninMarkHop1);
-	$("#knap_10").on("click", kaninMarkHop1Possition);
-	$("#knap_11").on("click", kaninMarkHop2);
-	$("#knap_12").on("click", kaninMarkHop2Possition);
-	$("#knap_13").on("click", kaninMarkHop3);
-	$("#knap_14").on("click", kaninMarkHop3Possition);
-	$("#knap_15").on("click", kaninMarkHop4);
-	$("#knap_16").on("click", kaninMarkHop4Possition);
-	$("#knap_17").on("click", kaninMarkHop5);
-	$("#knap_18").on("click", kaninMarkHop5Possition);
-	$("#knap_19").on("click", kaninMarkHop6);
-
-
 	//	Startskærm vises
 	$("#start_skilt").removeClass("skjult");
 	$("#start_skilt").addClass("synlig");
