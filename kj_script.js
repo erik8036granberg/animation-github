@@ -76,6 +76,10 @@ $(window).on("load", startSkaerm);
 function startSkaerm() {
 	console.log("startSkaerm");
 
+	//	Musik gunfight startes
+	$("#musik_gunfight")[0].play();
+	$("#musik_gunfight")[0].volume = 0.2;
+
 	//	Startskærm vises
 	$("#start_skilt").removeClass("skjult");
 	$("#start_skilt").addClass("synlig");
@@ -101,15 +105,14 @@ function startKlikPaaKnap() {
 
 	// - - -
 
-	// knaplyd spilles
-	// *** kommer til ***
+	// knaplyd effekt_bank spilles
+	$("#effekt_bank")[0].play();
 
 	// - - - trigger
 
 	//  Når lyden har spillet spillet
-	// *** rettes til lyden har spillet istedet for klik ***
+	$("#effekt_bank").on("ended", kaninHopInd);
 
-	kaninHopInd();
 }
 
 // - - - - - kanin_hop_ind - - - - -
@@ -117,7 +120,8 @@ function startKlikPaaKnap() {
 function kaninHopInd() {
 	console.log("kaninHopInd");
 
-	// knaplyd sluttes??
+	//	Slut lyd effekt_bank
+	$("#effekt_bank").off("ended");
 
 	// - - -
 
@@ -137,10 +141,14 @@ function kaninHopInd() {
 	// Start sprite-animation: kanin_hop_fremad
 	$("#kanin_sprite").addClass("kanin_hop_fremad");
 
+	// Start lyd: effekt_kaninhop
+	$("#effekt_kaninhop_to_gange")[0].play();
+	$("#effekt_kaninhop_to_gange")[0].volume = 0.1;
+
 	// - - - trigger
 
-	//  .kanin_ind-fra-siden er færdig
-	$("#kanin_sprite").on("animationend", jaegerDrikker);
+	//  .kanin_ind-fra-siden er færdig + tid
+	$("#kanin_sprite").on("animationend", setTimeout(jaegerDrikker, 5000));
 }
 
 
@@ -149,6 +157,9 @@ function kaninHopInd() {
 
 function jaegerDrikker() {
 	console.log("jaegerDrikker");
+
+	// slut lyd: effekt_kaninhop_to_gange
+	$("#effekt_kaninhop_to_gange").off("ended");
 
 	$("#kanin_sprite").off("animationend", jaegerDrikker);
 
@@ -172,10 +183,14 @@ function jaegerDrikker() {
 	// start sprite-ani: jaeger_drikker
 	$("#jaeger_sprite").addClass("jaeger_drikker");
 
+	// Start lyd: effekt_slurk_tre_gange
+	$("#effekt_slurk_tre_gange")[0].play();
+	$("#effekt_slurk_tre_gange")[0].volume = 0.3;
+
 	// - - - trigger
 
-	//  Jægeren har drukket 3 gange
-	$("#jaeger_sprite").on("animationend", jaegerFalderISoevn);
+	//  Jægeren har drukket 3 gange + tid
+	$("#jaeger_sprite").on("animationend", setTimeout(jaegerFalderISoevn, 8000));
 }
 
 
@@ -184,6 +199,9 @@ function jaegerDrikker() {
 
 function jaegerFalderISoevn() {
 	console.log("jaegerFalderISoevn");
+
+	// Slut lyd: effekt_slurk_tre_gange
+	$("#effekt_slurk_tre_gange").off("ended");
 
 	$("#jaeger_sprite").off("animationend", jaegerFalderISoevn);
 
@@ -197,9 +215,8 @@ function jaegerFalderISoevn() {
 
 	// - - - trigger
 
-	// .jaeger_falder_i_soevn er færdig
-	$("#jaeger_sprite").on("animationend", jaegerSover);
-
+	// .jaeger_falder_i_soevn er færdig + tid
+	$("#jaeger_sprite").on("animationend", setTimeout(jaegerSover, 3000));
 }
 
 
@@ -222,13 +239,18 @@ function jaegerSover() {
 	// stop sprite frame: kanin_staar
 	$("#kanin_sprite").removeClass("kanin_staar");
 
-	// Stop spriteanimation: kanin_blinker
+	// Start spriteanimation: kanin_blinker
 	$("#kanin_sprite").addClass("kanin_blinker");
+
+	// Start lyd: effekt_snorken
+	$("#effekt_snorken")[0].play();
+	$("#effekt_snorken")[0].volume = 0.3;
+	document.getElementById("effekt_snorken").loop = true;
 
 	// - - - trigger
 
-	//  Når .kanin_blinker er færdig
-	$("#kanin_sprite").on("animationend", taktikValg);
+	//  Når .kanin_blinker er færdig + tid
+	$("#kanin_sprite").on("animationend", setTimeout(taktikValg, 5000));
 }
 
 
@@ -252,13 +274,20 @@ function taktikValg() {
 	$("#nedtoning").removeClass("skjult");
 	$("#nedtoning").addClass("synlig");
 
-	// Baggrundsmusik slutter
-	// Valg-musik starter
+	// Baggrundsmusik skrues ned
+	$("#musik_gunfight").animate({
+		volume: 0.2
+	}, 1000);
 
+	// Baggrundsmusik skrues ned
+	$("#effekt_snorken").animate({
+		volume: 0.05
+	}, 1000);
 	// - - - trigger
 
 	// Der er klikket på knap a
 	$("#taktikvalg_knap_a").on("click", taktikValgKlikPaaKnap);
+
 	$("#taktikvalg_tekst_a").on("click", taktikValgKlikPaaKnap);
 
 }
@@ -273,15 +302,22 @@ function taktikValgKlikPaaKnap() {
 
 	// - - -
 
-	// knaplyd spilles
-	// *** kommer til ***
+	// knaplyd effekt_bank spilles
+	$("#effekt_bank")[0].play();
 
-	// - - - trigger
+
+	// Slut lyd: effekt_snorken
+	$("#effekt_snorken").off("ended");
+	document.getElementById("effekt_snorken").loop = false;
 
 	//  Når lyden har spillet spillet
 	// *** rettes til lyden har spillet istedet for klik ***
 
-	kaninHopperFrem();
+
+	// - - - trigger
+
+	//  Når lyden har spillet spillet
+	$("#effekt_bank").on("ended", kaninHopperFrem);
 
 }
 
@@ -291,6 +327,9 @@ function taktikValgKlikPaaKnap() {
 
 function kaninHopperFrem() {
 	console.log("kaninHopperFrem");
+
+	//	Slut lyd effekt_bank
+	$("#effekt_bank").off("ended");
 
 	// - - -
 

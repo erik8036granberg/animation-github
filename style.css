@@ -501,7 +501,7 @@ h3 {
 	animation-name: kanin_blinker_kf;
 	animation-duration: 2s;
 	animation-timing-function: steps(8);
-	animation-iteration-count: 1;
+	animation-iteration-count: infinite;
 }
 
 @keyframes kanin_blinker_kf {
