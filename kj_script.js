@@ -281,7 +281,7 @@ function taktikValg() {
 	// Baggrundsmusik skrues ned
 	$("#musik_gunfight").animate({
 		volume: 0
-	}, 9000);
+	}, 5000);
 
 	// Snorken skrues ned
 	$("#effekt_snorken").animate({
@@ -336,8 +336,9 @@ function kaninHopperFrem() {
 	// Stop lyd effekt_bank
 	$("#effekt_bank").off("ended");
 
-	// Stop lyd: Baggrundsmusik
-	$("#musik_gunfight").off("ended");
+	$("#musik_gunfight").animate({
+		volume: 0
+	}, 9000);
 
 	// Start lyd Actionmusik
 	$("#musik_crust")[0].play();
@@ -793,7 +794,7 @@ function kaninMobilRinger() {
 	$("#kanin_sprite").addClass("kanin_mobil_size");
 
 	// Slut kanin possition: kanin_mark_possition_6
-	$("#kanin_container").removeClass("kanin_mark_possition_6")
+	$("#kanin_container").removeClass("kanin_mark_possition_6");
 
 	// begynd kanin-animation: kanin_mobil_ryster
 	$("#kanin_container").addClass("kanin_mobil_ryster");

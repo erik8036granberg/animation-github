@@ -530,10 +530,11 @@ h3 {
 
 .taktikvalg_rubrik {
 	font-family: 'playbillregular';
-	font-size: 7vw;
+	font-size: 6.5vw;
 	text-transform: uppercase;
+	white-space: nowrap;
 	color: #42210b;
-	margin: 0 0 1vw;
+	padding: 0 0 2vw;
 }
 
 .taktikvalg_wrapper {
