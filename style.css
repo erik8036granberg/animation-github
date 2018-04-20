@@ -1449,8 +1449,8 @@ h3 {
 }
 
 .mobil_ryster_2 {
-	top: 34vw;
-	left: 39.5vw;
+	top: 36vw;
+	left: 38vw;
 	z-index: 50;
 	animation-name: mobil_ryster_2_kf;
 	animation-duration: 2s;
@@ -1552,6 +1552,31 @@ h3 {
 		transform: rotate(0deg);
 		z-index: 100;
 	}
+}
+
+/* jæger vågen (sprite) */
+
+.jaeger_vaagen {
+	animation-name: jaeger_vaagen_kf;
+	animation-duration: 1.5s;
+	animation-timing-function: steps(14);
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes jaeger_vaagen_kf {
+	0% {
+		background-position: 0 -300%;
+	}
+	100% {
+		background-position: -1400% -300%;
+	}
+}
+
+/* jæger gal frame (sprite) */
+
+.jaeger_vaagen_gal {
+	background-position: -1300% -300%;
 }
 
 /* jæger skyder (sprite) */

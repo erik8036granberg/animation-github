@@ -71,7 +71,7 @@ Erik Granberg
 
 $(window).on("load", startSkaerm);
 
-$("#musik_gunfight")[0].volume = 0.2;
+$("#musik_gunfight")[0].volume = 0.3;
 
 //  Siden er loadet
 
@@ -279,7 +279,7 @@ function taktikValg() {
 	// Baggrundsmusik skrues ned
 	$("#musik_gunfight").animate({
 		volume: 0
-	}, 8000);
+	}, 6000);
 
 	// Snorken skrues ned
 	$("#effekt_snorken").animate({
@@ -336,7 +336,7 @@ function kaninHopperFrem() {
 
 	// Start lyd Actionmusik
 	$("#musik_crust")[0].play();
-	$("#musik_crust")[0].volume = 0.2;
+	$("#musik_crust")[0].volume = 0.3;
 
 	// Slut kanin-possition: kanin_bag_trae
 	$("#kanin_container").removeClass("kanin_bag_trae");
@@ -779,7 +779,7 @@ function randomValg() {
 
 	$("#kanin_container").off("animationend", randomValg);
 
-	if (Math.random() >= 0.33) {
+	if (Math.random() >= 0.001) {
 		kaninMobilRinger();
 		console.log("random = mobil ringer!");
 	} else {
@@ -867,18 +867,11 @@ function kaninMobil2Ringer() {
 	$("#effekt_mobilbrummen_2")[0].play();
 	$("#effekt_mobilbrummen_2")[0].volume = 0.5;
 
-
-	// slut jaeger sprite-animation: jaeger_sover
-	$("#jaeger_sprite").removeClass("jaeger_sover");
-
-	// start jaeger sprite-animation: jaeger_vaagner
-	$("#jaeger_sprite").addClass("jaeger_vaagner");
-
 	// - - -
 
 	// Når sprite-animation er færdig
 
-	$("#jaeger_sprite").on("animationend", MobilRygerFrem);
+	$("#kanin_container").on("animationend", MobilRygerFrem);
 
 }
 
@@ -887,7 +880,7 @@ function kaninMobil2Ringer() {
 function MobilRygerFrem() {
 	console.log("MobilRygerFrem");
 
-	$("#jaeger_sprite").off("animationend", MobilRygerFrem);
+	$("#kanin_container").off("animationend", MobilRygerFrem);
 
 	// - - -
 
@@ -900,12 +893,6 @@ function MobilRygerFrem() {
 	// begynd contaioner-animation: mobil ryger frem
 	$("#mobil_container").addClass("mobil_ryger_frem");
 
-	// slut jaeger sprite-animation: jaeger_vaagner
-	$("#jaeger_sprite").removeClass("jaeger_vaagner");
-
-	// start jaeger sprite frame: jaeger_sidder_stille
-	$("#jaeger_sprite").addClass("jaeger_sidder_stille");
-
 	// - - -
 
 	// Når mobil ryger frem er færdig
@@ -916,6 +903,12 @@ function MobilRygerFrem() {
 
 function mobilRyster() {
 	console.log("mobilRyster");
+
+	// slut jaeger sprite-animation: jaeger_sover
+	$("#jaeger_sprite").removeClass("jaeger_sover");
+
+	// start jaeger sprite-animation: jaeger_vaagner
+	$("#jaeger_sprite").addClass("jaeger_vaagner");
 
 	$("#mobil_container").off("animationend", mobilRyster);
 
@@ -934,23 +927,45 @@ function mobilRyster() {
 	$("#effekt_mobilbrummen_3")[0].play();
 	$("#effekt_mobilbrummen_3")[0].volume = 0.5;
 
+	$("#mobil_container").on("animationend", jaegerVaagen);
+}
+
+function jaegerVaagen() {
+	console.log("jaegerVaagen");
+
+	$("#mobil_container").off("animationend", jaegerVaagen);
+
 	// - - -
 
-	$("#mobil_container").on("animationend", JaegerGevaerProblem);
+	// slut jaeger sprite-animation: jaeger_vaagner
+	$("#jaeger_sprite").removeClass("jaeger_vaagner");
+
+	// start jaeger sprite-animation: jaeger_vaagen
+	$("#jaeger_sprite").addClass("jaeger_vaagen");
+
+	// - - -
+
+	$("#jaeger_sprite").on("animationend", jaegerGevaerTabt);
 
 }
 
 // - - - - -  JaegerGevaerProblem - - - -
 
-function JaegerGevaerProblem() {
-	console.log("JaegerGevaerProblem");
+function jaegerGevaerTabt() {
+	console.log("jaegerGevaerTabt");
 
-	$("#mobil_container").off("animationend", JaegerGevaerProblem);
+	$("#jaeger_sprite").off("animationend", jaegerGevaerTabt);
+
+	// - - -
+
+	// Slut jaeger sprite-animation: jaeger_vaagen
+	$("#jaeger_sprite").removeClass("jaeger_vaagen");
+
+	// sæt jaeger sprite-frame: jaeger_vaagen
+	$("#jaeger_sprite").addClass("jaeger_vaagen_gal");
 
 	// Slut lyd effekt_mobilbrummen_3
 	$("effekt_mobilbrummen_3").off("ended");
-
-	// - - -
 
 	// slut mobil-animation: mobil_ryster
 	$("#mobil_container").removeClass("mobil_ryster");
@@ -963,6 +978,8 @@ function JaegerGevaerProblem() {
 	$("#effekt_mobilbrummen_4")[0].volume = 0.5;
 
 	$("effekt_mobilbrummen_4").off("ended");
+
+
 }
 
 // - - - - -  friBane - - - -
