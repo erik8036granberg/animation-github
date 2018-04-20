@@ -1634,71 +1634,7 @@ h3 {
 
 
 
-
-
 /* - - - - - - - scene: xxx - - - - - - - - */
-
-/* Kanin bliver skudt - blodsplat */
-
-#blod-splat_container {
-	position: absolute;
-	width: 20.83vw;
-	height: 20.83vw;
-	top: 50vw;
-	left: 50vw;
-	z-index: 35;
-}
-
-#blod_splat_sprite {
-	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
-	background-image: url(images/blodspritesheet.svg);
-	background-size: 1000% 100%;
-}
-
-.blod_splat_animation {
-	animation-name: blod_splat_animation_kf;
-	animation-duration: 2s;
-	animation-timing-function: steps(10);
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-}
-
-@keyframes blod_splat_animation_kf {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: -1000% 0;
-	}
-}
-
-
-/* Kanin bliver skudt - kopi af kaninsprite */
-
-#afskudt_hovede_container {
-	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
-	top: 20vw;
-	left: 20vw;
-	z-index: 35;
-}
-
-.afskudt_hovede_flyv {}
-
-#afskudt_hovede_sprite {
-	position: absolute;
-	width: 26.04vw;
-	height: 28.64vw;
-	background-image: url(images/kaninspritesheet.svg);
-	background-size: 0 700%;
-}
-
-.afskudt_hovede_drej_rund {
-	transform: rotate(360deg);
-}
 
 /* kanin stilbillede - (sprite) */
 
@@ -1726,7 +1662,146 @@ h3 {
 
 #slut_afslut_spil_knap {}
 
-/* - - - - - - - til højre ben - - - - - - - - */
+/* - - - - - - - Spil - - - - - - - - */
+
+/*kanin_spil_position (container) */
+
+.kanin_spil_possition {
+	top: 11.5vw;
+	left: 21vw;
+	z-index: 25;
+}
+
+/*kanin_spil_Størrelse (sprite) */
+
+.kanin_spil_size {
+	transform: scale(0.72);
+}
+
+#kanin_drop {
+	position: absolute;
+	top: 5vw;
+	left: 8.5vw;
+	width: 9vw;
+	height: 23vw;
+	z-index: 150;
+}
+
+.gulerod_wrapper_1 {
+	position: absolute;
+	top: 10vw;
+	left: 30vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_2 {
+	position: absolute;
+	top: 10vw;
+	left: 40vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_3 {
+	position: absolute;
+	top: 10vw;
+	left: 50vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod {
+	position: absolute;
+	top: 1vw;
+	left: 0.5vw;
+	width: 3.90vw;
+	height: 10.93vw;
+	z-index: 150;
+}
+
+.gulerod_jord {
+	position: absolute;
+	bottom: -0.5vw;
+	width: 5vw;
+	height: 1.30vw;
+	z-index: 200;
+	pointer-events: none;
+	background-image: url(images/jord.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.gulerod_puls {
+	animation-name: gulerod_puls_kf;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes gulerod_puls_kf {
+	0% {
+		transform: scale(1);
+
+	}
+	50% {
+		transform: scale(1.2);
+
+	}
+	100% {
+		transform: scale(1);
+
+	}
+}
+
+
+#timer_wrapper {
+	position: absolute;
+	top: 2vw;
+	left: 10vw;
+	width: 80vw;
+	height: 3vw;
+	background-color: #000;
+	border-color: #000;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#timer_bar {
+	position: absolute;
+	top: 0vw;
+	left: 0vw;
+	width: 100%;
+	height: 100%;
+	background-color: #ff6700;
+}
+
+.timer_gaa_ned {
+	animation-name: timer_gaa_ned_kf;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes timer_gaa_ned_kf {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+
+.timer_gaa_ned_paused {
+	animation-play-state: paused;
+}
+
+
+
+
 
 /* Vindue bliver smadret */
 

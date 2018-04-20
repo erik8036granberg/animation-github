@@ -67,7 +67,11 @@ Erik Granberg
  - - - - - lyde - - - - -
 */
 
+// - - - - - onLoad - - - - -
+
 $(window).on("load", startSkaerm);
+
+$("#musik_gunfight")[0].volume = 0.2;
 
 //  Siden er loadet
 
@@ -83,12 +87,6 @@ function startSkaerm() {
 	//	Startnedtoning vises
 	$("#nedtoning").removeClass("skjult");
 	$("#nedtoning").addClass("synlig");
-
-
-	//	Baggrundsmusik starter
-	$("#musik_gunfight")[0].play();
-	$("#musik_gunfight")[0].volume = 0.2;
-
 
 	// Start jaeger container
 	$("#jaeger_container").addClass("jaeger_sidder");
@@ -126,7 +124,7 @@ function kaninHopInd() {
 
 	$("#effekt_bank").off("ended", kaninHopInd);
 
-	// Start knaplyd effekt_bank
+	// slut knaplyd effekt_bank
 	$("#effekt_bank").off("ended");
 
 	// - - -
@@ -190,7 +188,7 @@ function jaegerDrikker() {
 
 	// Start lyd: effekt_slurk_tre_gange
 	$("#effekt_slurk_tre_gange")[0].play();
-	$("#effekt_slurk_tre_gange")[0].volume = 0.3;
+	$("#effekt_slurk_tre_gange")[0].volume = 0.2;
 
 	// - - - trigger
 
@@ -281,7 +279,7 @@ function taktikValg() {
 	// Baggrundsmusik skrues ned
 	$("#musik_gunfight").animate({
 		volume: 0
-	}, 5000);
+	}, 8000);
 
 	// Snorken skrues ned
 	$("#effekt_snorken").animate({
@@ -335,10 +333,6 @@ function kaninHopperFrem() {
 
 	// Stop lyd effekt_bank
 	$("#effekt_bank").off("ended");
-
-	$("#musik_gunfight").animate({
-		volume: 0
-	}, 9000);
 
 	// Start lyd Actionmusik
 	$("#musik_crust")[0].play();
@@ -468,12 +462,11 @@ function kaninMarkHop1Possition() {
 function kaninMarkHop2() {
 	console.log("kaninMarkHop2");
 
+	$("#kanin_container").off("animationend", kaninMarkHop2);
+
 	// Start lyd: effekt_kaninhop_2
 	$("#effekt_kaninhop_2")[0].play();
 	$("#effekt_kaninhop_2")[0].volume = 0.1;
-
-
-	$("#kanin_container").off("animationend", kaninMarkHop2);
 
 	// - - -
 
@@ -500,10 +493,10 @@ function kaninMarkHop2() {
 function kaninMarkHop2Possition() {
 	console.log("kaninMarkHop2Possition");
 
+	$("#kanin_sprite").off("animationend", kaninMarkHop2Possition);
+
 	// Slut lyd: effekt_kaninhop
 	$("#effekt_kaninhop_2").off("ended");
-
-	$("#kanin_sprite").off("animationend", kaninMarkHop2Possition);
 
 	// - - -
 
@@ -532,11 +525,12 @@ function kaninMarkHop2Possition() {
 function kaninMarkHop3() {
 	console.log("kaninMarkHop3");
 
+	$("#kanin_container").off("animationend", kaninMarkHop3);
+
 	// Start lyd: effekt_kaninhop_3
 	$("#effekt_kaninhop_3")[0].play();
 	$("#effekt_kaninhop_3")[0].volume = 0.1;
 
-	$("#kanin_container").off("animationend", kaninMarkHop3);
 
 	// - - -
 
@@ -563,10 +557,11 @@ function kaninMarkHop3() {
 function kaninMarkHop3Possition() {
 	console.log("kaninMarkHop3Possition");
 
+	$("#kanin_sprite").off("animationend", kaninMarkHop3Possition);
+
 	// Slut lyd: effekt_kaninhop
 	$("#effekt_kaninhop_3").off("ended");
 
-	$("#kanin_sprite").off("animationend", kaninMarkHop3Possition);
 
 	// - - -
 
@@ -594,11 +589,11 @@ function kaninMarkHop3Possition() {
 function kaninMarkHop4() {
 	console.log("kaninMarkHop4");
 
+	$("#kanin_container").off("animationend", kaninMarkHop4);
+
 	// Start lyd: effekt_kaninhop_4
 	$("#effekt_kaninhop_4")[0].play();
 	$("#effekt_kaninhop_4")[0].volume = 0.1;
-
-	$("#kanin_container").off("animationend", kaninMarkHop4);
 
 	// - - -
 
@@ -625,10 +620,10 @@ function kaninMarkHop4() {
 function kaninMarkHop4Possition() {
 	console.log("kaninMarkHop4Possition");
 
+	$("#kanin_sprite").off("animationend", kaninMarkHop4Possition);
+
 	// Slut lyd: effekt_kaninhop_4
 	$("#effekt_kaninhop_4").off("ended");
-
-	$("#kanin_sprite").off("animationend", kaninMarkHop4Possition);
 
 	// - - -
 
@@ -656,11 +651,11 @@ function kaninMarkHop4Possition() {
 function kaninMarkHop5() {
 	console.log("kaninMarkHop5");
 
+	$("#kanin_container").off("animationend", kaninMarkHop5);
+
 	// Start lyd: effekt_kaninhop_5
 	$("#effekt_kaninhop_5")[0].play();
 	$("#effekt_kaninhop_5")[0].volume = 0.1;
-
-	$("#kanin_container").off("animationend", kaninMarkHop5);
 
 	// - - -
 
@@ -687,10 +682,10 @@ function kaninMarkHop5() {
 function kaninMarkHop5Possition() {
 	console.log("kaninMarkHop5Possition");
 
+	$("#kanin_sprite").off("animationend", kaninMarkHop5Possition);
+
 	// Slut lyd: effekt_kaninhop
 	$("#effekt_kaninhop_5").off("ended");
-
-	$("#kanin_sprite").off("animationend", kaninMarkHop5Possition);
 
 	// - - -
 
@@ -774,15 +769,29 @@ function kaninMarkHop6Possition() {
 
 	// Når flytte-animation er færdig
 
-	$("#kanin_container").on("animationend", kaninMobilRinger);
+	$("#kanin_container").on("animationend", randomValg);
+}
+
+// - - - - -  randomValg - - - -
+
+function randomValg() {
+	console.log("Random valg");
+
+	$("#kanin_container").off("animationend", randomValg);
+
+	if (Math.random() >= 0.33) {
+		kaninMobilRinger();
+		console.log("random = mobil ringer!");
+	} else {
+		friBane();
+		console.log("random = der er fri bane");
+	}
 }
 
 // - - - - -  kaninMobilRinger - - - -
 
 function kaninMobilRinger() {
 	console.log("kaninMobilRinger");
-
-	$("#kanin_container").off("animationend", kaninMobilRinger);
 
 	// Slut lyd: effekt_snorken
 	$("#effekt_snorken").off("ended");
@@ -894,8 +903,8 @@ function MobilRygerFrem() {
 	// slut jaeger sprite-animation: jaeger_vaagner
 	$("#jaeger_sprite").removeClass("jaeger_vaagner");
 
-	// start jaeger sprite frame: jaeger_sur
-	$("#jaeger_sprite").addClass("jaeger_sur");
+	// start jaeger sprite frame: jaeger_sidder_stille
+	$("#jaeger_sprite").addClass("jaeger_sidder_stille");
 
 	// - - -
 
@@ -909,10 +918,6 @@ function mobilRyster() {
 	console.log("mobilRyster");
 
 	$("#mobil_container").off("animationend", mobilRyster);
-
-	// Start jaeger lyd: effekt_lillemoegdyr
-	$("#effekt_lillemoegdyr")[0].play();
-	$("#effekt_lillemoegdyr")[0].volume = 0.5;
 
 	// - - -
 
@@ -929,21 +934,18 @@ function mobilRyster() {
 	$("#effekt_mobilbrummen_3")[0].play();
 	$("#effekt_mobilbrummen_3")[0].volume = 0.5;
 
-	// Sæt censur_skilt possition
-	$("#censur_container").addClass("censur_possition");
-
 	// - - -
 
-	$("#mobil_container").on("animationend", jaegerSkyder);
+	$("#mobil_container").on("animationend", JaegerGevaerProblem);
 
 }
 
-// - - - - -  jaegerSkyder - - - -
+// - - - - -  JaegerGevaerProblem - - - -
 
-function jaegerSkyder() {
-	console.log("jaegerSkyder");
+function JaegerGevaerProblem() {
+	console.log("JaegerGevaerProblem");
 
-	$("#mobil_container").off("animationend", jaegerSkyder);
+	$("#mobil_container").off("animationend", JaegerGevaerProblem);
 
 	// Slut lyd effekt_mobilbrummen_3
 	$("effekt_mobilbrummen_3").off("ended");
@@ -960,43 +962,12 @@ function jaegerSkyder() {
 	$("#effekt_mobilbrummen_4")[0].play();
 	$("#effekt_mobilbrummen_4")[0].volume = 0.5;
 
-
-	// start cenasurskilt-move: censur_cover
-	$("#censur_container").addClass("censur_cover");
-
-	// Slut jaeger sprite frame: jaeger_sur
-	$("#jaeger_sprite").removeClass("jaeger_sur");
-
-	// start sprite-animation: jaeger_skyder
-	$("#jaeger_sprite").addClass("jaeger_skyder");
-
-	// Start lyd effekt_skud
-	$("#effekt_skud")[0].play();
-	$("#effekt_skud")[0].volume = 0.5;
-
-	// jaeger har skudt
-	$("#jaeger_sprite").on("animationend", efterSkud);
-
+	$("effekt_mobilbrummen_4").off("ended");
 }
 
-// - - - - -  jaegerSkyder - - - -
+// - - - - -  friBane - - - -
 
-function efterSkud() {
-	console.log("efterSkud");
+function friBane() {
+	console.log("friBane");
 
-	$("#jaeger_sprite").off("animationend", efterSkud);
-
-	// Slut sprite-animation: jaeger_skyder
-	$("#jaeger_sprite").removeClass("jaeger_skyder");
-
-	// Start Jaeger sprite frame: jaeger_sidder_stille
-	$("#jaeger_sprite").addClass("jaeger_sidder_stille");
-
-	// Slut lyd effekt_skud
-	$("effekt_skud").off("ended");
-
-	// Skru ationmusik ned
-	$("#musik_crust").animate({
-		volume: 0
-	}, 9000);
 }

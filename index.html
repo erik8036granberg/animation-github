@@ -16,9 +16,13 @@
 		</div>
 		<div id="nedtoning" class="skjult"></div>
 		<div id="baggrund_buske"></div>
+
 		<div id="kanin_container">
-			<div id="kanin_sprite"></div>
+			<div id="kanin_sprite">
+				<div id="kanin_drop" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
+			</div>
 		</div>
+
 		<div id="sten"></div>
 		<div id="baggrund_trae"></div>
 		<div id="jaeger_container">
@@ -35,26 +39,9 @@
 		<div id="censur_container">
 			<div id="censur_sprite"></div>
 		</div>
-		<div id="blod_splat_container">
-			<div id="blod_splat_sprite"></div>
-		</div>
-		<div id="afskudt_hovede_container">
-			<div id="afskudt_hovede_sprite"></div>
-		</div>
 		<div id="vindue_container">
 			<div id="vindue_sprite"></div>
 		</div>
-		<div id="spil_infoskilt"></div>
-		<div id="spil_ok_knap"></div>
-		<div id="spil_gulerod_1"></div>
-		<div id="spil_gulerod_2"></div>
-		<div id="spil_gulerod_3"></div>
-		<div id="spil_gulerod_4"></div>
-		<div id="spil_gulerod_5"></div>
-		<div id="spil_gulerod_6"></div>
-		<div id="spil_gulerod_7"></div>
-		<div id="spil_scoreboard"></div>
-		<div id="spil_timer"></div>
 		<div id="taktikvalg_skilt" class="skjult">
 			<div class="taktikvalg_rubrik">Snup gulerødderne</div>
 			<div class="taktikvalg_wrapper">
@@ -68,10 +55,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="slut_du_vinder_skilt"></div>
-		<div id="slut_spil_igen_knap"></div>
-		<div id="slut_afslut_spil_knap"></div>
 	</div>
 
 	<audio id="musik_gunfight" src="lyde/the_gunfight.mp3" autoplay></audio>
