@@ -69,22 +69,36 @@ Erik Granberg
 
 // - - - - - onLoad - - - - -
 
-$(window).on("load", startSkaerm);
+// variabler
+var antalGuleroedder = 0;
+var timer;
+var gameInfoTimer;
 
+// Skjul skilte og nedtoninger
+$("#start_skilt").addClass("skjult");
+$("#taktikvalg_skilt").addClass("skjult");
+$("#game_info_skilt").addClass("skjult");
+$("#nedtoning").addClass("skjult");
+
+$("#timer_wrapper").hide();
+
+// baggrundsmusik lydniveau
 $("#musik_gunfight")[0].volume = 0.3;
 
-//  Siden er loadet
+// siden er loadet
+$(window).on("load", startSkaerm);
+console.log("Siden er loadet");
 
 // - - - - - startskaerm - - - - -
 
 function startSkaerm() {
 	console.log("startSkaerm");
 
-	//	Startskærm vises
+	//	//	Startskærm vises
 	$("#start_skilt").removeClass("skjult");
 	$("#start_skilt").addClass("synlig");
-
-	//	Startnedtoning vises
+	//
+	//	//	Startnedtoning vises
 	$("#nedtoning").removeClass("skjult");
 	$("#nedtoning").addClass("synlig");
 
@@ -288,19 +302,24 @@ function taktikValg() {
 	// - - - trigger
 
 	// Der er klikket på knap a
-	$("#taktikvalg_knap_a").on("click", taktikValgKlikPaaKnap);
+	$("#taktikvalg_knap_a").on("click", taktikValgKlikPaaKnapA);
 
-	$("#taktikvalg_tekst_a").on("click", taktikValgKlikPaaKnap);
+	$("#taktikvalg_tekst_a").on("click", taktikValgKlikPaaKnapA);
+
+	// Der er klikket på knap a
+	$("#taktikvalg_knap_b").on("click", taktikValgKlikPaaKnapB);
+
+	$("#taktikvalg_tekst_b").on("click", taktikValgKlikPaaKnapB);
 
 }
 
-// - - - - -  taktikValgKlikPaaKnap - - - - -
+// - - - - -  taktikValgKlikPaaKnapA - - - - -
 
-function taktikValgKlikPaaKnap() {
-	console.log("taktikValgKlikPaaKnap");
+function taktikValgKlikPaaKnapA() {
+	console.log("taktikValgKlikPaaKnapA");
 
-	$("#taktikvalg_knap_a").off("click", taktikValgKlikPaaKnap);
-	$("#taktikvalg_tekst_a").off("click", taktikValgKlikPaaKnap);
+	$("#taktikvalg_knap_a").off("click", taktikValgKlikPaaKnapA);
+	$("#taktikvalg_tekst_a").off("click", taktikValgKlikPaaKnapA);
 
 	// - - -
 
@@ -904,15 +923,13 @@ function MobilRygerFrem() {
 function mobilRyster() {
 	console.log("mobilRyster");
 
-	// slut jaeger sprite-animation: jaeger_sover
-	$("#jaeger_sprite").removeClass("jaeger_sover");
-
-	// start jaeger sprite-animation: jaeger_vaagner
-	$("#jaeger_sprite").addClass("jaeger_vaagner");
-
 	$("#mobil_container").off("animationend", mobilRyster);
 
 	// - - -
+
+	// slut jaeger sprite-animation: jaeger_sover
+	$("#jaeger_sprite").removeClass("jaeger_sover");
+
 
 	// slut mobil-move: mobil ryger frem
 	$("#mobil_container").removeClass("mobil_ryger_frem");
@@ -927,8 +944,13 @@ function mobilRyster() {
 	$("#effekt_mobilbrummen_3")[0].play();
 	$("#effekt_mobilbrummen_3")[0].volume = 0.5;
 
+	// start jaeger sprite-animation: jaeger_vaagner
+	$("#jaeger_sprite").addClass("jaeger_vaagner");
+
 	$("#mobil_container").on("animationend", jaegerVaagen);
 }
+
+// - - - - -  jaegerVaagen - - - -
 
 function jaegerVaagen() {
 	console.log("jaegerVaagen");
@@ -937,19 +959,38 @@ function jaegerVaagen() {
 
 	// - - -
 
-	// slut jaeger sprite-animation: jaeger_vaagner
+	// fjern jaeger sprite-animation: jaeger_vaagner
 	$("#jaeger_sprite").removeClass("jaeger_vaagner");
 
-	// start jaeger sprite-animation: jaeger_vaagen
+	// start jaeger sprite-animation: jaeger_vaagner
+	$("#jaeger_sprite").addClass("jaeger_vaagen_gal");
+
+	// - - -
+
+	$("#jaeger_sprite").on("animationend", jaegerVaagen2);
+}
+
+// - - - - -  jaegerVaagen - - - -
+
+function jaegerVaagen2() {
+	console.log("jaegerVaagen2");
+
+	$("#mobil_container").off("animationend", jaegerVaagen2);
+
+	// - - -
+
+	// fjern jaeger sprite-animation: jaeger_vaagner
+	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal");
+
+	// start jaeger sprite-animation: jaeger_vaagner
 	$("#jaeger_sprite").addClass("jaeger_vaagen");
 
 	// - - -
 
 	$("#jaeger_sprite").on("animationend", jaegerGevaerTabt);
-
 }
 
-// - - - - -  JaegerGevaerProblem - - - -
+// - - - - -  jaegerGevaerTabt - - - -
 
 function jaegerGevaerTabt() {
 	console.log("jaegerGevaerTabt");
@@ -977,8 +1018,178 @@ function jaegerGevaerTabt() {
 	$("#effekt_mobilbrummen_4")[0].play();
 	$("#effekt_mobilbrummen_4")[0].volume = 0.5;
 
+	// - - -
+
+	// mobil_ryster_2 er færdig
+	$("#mobil_container").on("animationend", gameInfo);
+}
+
+// - - - - -  gameInfo - - - -
+
+function gameInfo() {
+	console.log("gameInfo");
+
+	$("#mobil_container").off("animationend", gameInfo);
+
+	// - - -
+
+	// Slut mobil-animation: .mobil_ryster_2
+	$("#mobil_container").removeClass("mobil_ryster_2");
+
+	// Slut #effekt_mobilbrummen_4
 	$("effekt_mobilbrummen_4").off("ended");
 
+	// vis gameInfo-skilt
+	$("#game_info_skilt").removeClass("skjult");
+	$("#game_info_skilt").addClass("synlig");
+
+	// vis nedtoning
+	$("#nedtoning").removeClass("skjult");
+	$("#nedtoning").addClass("synlig");
+
+	// Start tæller
+	$("#info_countdown_sprite").addClass("info_countdown_do");
+
+	// - - -
+
+	// Når tæller er færdig
+	$("#info_countdown_sprite").on("animationend", GameSetup);
+}
+
+// - - - - -  GameSetup - - - -
+
+function GameSetup() {
+	console.log("GameSetup");
+	alert("gameSetup");
+
+	$("#info_countdown_sprite").off("animationend", GameSetup);
+
+	// - - -
+
+	// skjul gameInfo-skilt
+
+	// begynd kanin sprite size: .kanin_size
+
+	// Slut kanin possition: .kanin_mark_possition_6
+
+	// Start kanin possition: .kanin_game_possition
+
+	// Gå til gameBegyndTimer
+}
+
+//- - - - - - gameBegyndTimer - - - - - -
+
+function gameBegyndTimer() {
+	console.log("gameBegyndTimer");
+
+	//Sæt en timer: gameTimer
+	timer = setTimeout(gameTabt, 5000);
+
+	// Sæt alle gulerødder “#drag” til draggable = true
+	document.getElementById("drag1").draggable = true;
+	document.getElementById("drag2").draggable = true;
+	document.getElementById("drag3").draggable = true;
+	document.getElementById("drag4").draggable = true;
+	document.getElementById("drag5").draggable = true;
+	document.getElementById("drag6").draggable = true;
+	document.getElementById("drag7").draggable = true;
+
+	// Begynd gulerod_puls
+	$(".gulerod").addClass("gulerod_puls");
+
+	// gå til timerBar
+	timerBar();
+}
+
+//- - - - - - timerBar - - - - - -
+
+function timerBar() {
+	console.log("timerBar");
+
+	// Vis Timer #timer_wrapper + #timer_bar
+	$("#timer_wrapper").show();
+
+	//start #timer_bar animation: .timer_gaa_ned
+	$("#timer_bar").addClass("timer_gaa_ned");
+}
+
+//- - - - - - allowDrop - - - - - -
+
+function allowDrop(ev) {
+	console.log("allowDrop");
+	ev.preventDefault();
+}
+
+//- - - - - - drag - - - - - -
+
+function drag(ev) {
+	console.log("drag");
+	ev.dataTransfer.setData('text', ev.target.id);
+}
+
+//- - - - - - drop - - - - - -
+
+function drop(ev, target) {
+	console.log("function drop");
+	ev.preventDefault();
+	//	console.log(target.id + " : " + ev.target.id)
+	//	console.log(ev.dataTransfer.getData("text/html"));
+	//	console.log(ev.dataTransfer.getData("text"));
+	var data = ev.dataTransfer.getData("text");
+	$("#" + ev.dataTransfer.getData("text")).hide();
+
+	//Læg til antalGuleroedder++
+	antalGuleroedder++;
+	console.log("antal gulerødder: " + antalGuleroedder);
+
+	//If gulerødder antalGuleroedder >= 7
+	if (antalGuleroedder >= 7) {
+		clearTimeout(timer);
+		gameVundet();
+	}
+}
+
+//- - - - - - gameTabt - - - - - -
+
+function gameTabt() {
+	console.log("gameTabt");
+
+	// Slut drop-zone: .kanin_drop
+	$("#kanin_drop").hide();
+
+	// Stop timer-bar:
+	$("#timer_bar").hide();
+
+	// Stop gulerod_puls
+	$(".gulerod").removeClass("gulerod_puls");
+
+	// Sæt alle gulerødder “#drag” til draggable = false
+	document.getElementById("drag1").draggable = false;
+	document.getElementById("drag2").draggable = false;
+	document.getElementById("drag3").draggable = false;
+	document.getElementById("drag4").draggable = false;
+	document.getElementById("drag5").draggable = false;
+	document.getElementById("drag6").draggable = false;
+	document.getElementById("drag7").draggable = false;
+}
+
+//- - - - - - gameVundet - - - - - -
+
+function gameVundet() {
+	console.log("gameVundet");
+
+	// Stop gulerod_puls
+	$(".gulerod").removeClass("gulerod_puls");
+
+	// Sæt timer på pause
+	$("#timer_bar").addClass("timer_gaa_ned_paused");
+}
+
+
+// - - - - -  friBane - - - -
+
+function friBane() {
+	console.log("friBane");
 
 }
 
@@ -986,5 +1197,73 @@ function jaegerGevaerTabt() {
 
 function friBane() {
 	console.log("friBane");
+
+}
+
+// - - - - -  taktikValgKlikPaaKnapB - - - - -
+
+function taktikValgKlikPaaKnapB() {
+	console.log("taktikValgKlikPaaKnapB");
+
+	$("#taktikvalg_knap_a").off("click", taktikValgKlikPaaKnapB);
+	$("#taktikvalg_tekst_a").off("click", taktikValgKlikPaaKnapB);
+
+	// - - -
+
+	// knaplyd effekt_bank spilles
+	$("#effekt_bank")[0].play();
+
+
+	// - - - trigger
+
+	//  Når lyden har spillet spillet
+	$("#effekt_bank").on("ended", kungFuPlan);
+
+}
+
+// - - - - -  taktikValgKlikPaaKnapB - - - - -
+
+function kungFuPlan() {
+	console.log("kungFuPlan");
+
+	$("#effekt_bank").off("ended", kungFuPlan);
+
+	// - - -
+
+	$("#effekt_bank").off("ended", kaninHopperFrem);
+
+	// - - -
+
+	// Taktikvalg-skilt skjules
+	$("#taktikvalg_skilt").removeClass("synlig");
+	$("#taktikvalg_skilt").addClass("skjult");
+	$("#nedtoning").removeClass("synlig");
+	$("#nedtoning").addClass("skjult");
+
+	// Stop lyd effekt_bank
+	$("#effekt_bank").off("ended");
+
+	// Start lyd Actionmusik
+	$("#musik_crust")[0].play();
+	$("#musik_crust")[0].volume = 0.3;
+
+	// Slut kanin-possition: kanin_bag_trae
+	$("#kanin_container").removeClass("kanin_bag_trae");
+
+	// Start kanin move: kanin_et_hop_til_hoejre
+	$("#kanin_container").addClass("kanin_et_hop_til_hoejre");
+
+	// Slut sprite-animation: kanin_blinker
+	$("#kanin_sprite").removeClass("kanin_blinker");
+
+	// Start sprite-animation: kanin_drej_i_luften
+	$("#kanin_sprite").addClass("kanin_drej_i_luften");
+
+	// Start lyd: effekt_kaninhop
+	//	$("#effekt_kaninhop")[0].play();
+	//	$("#effekt_kaninhop")[0].volume = 0.1;
+
+	// - - - trigger
+
 
 }

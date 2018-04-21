@@ -446,10 +446,10 @@ h3 {
 
 @keyframes jaeger_drikker_kf {
 	0% {
-		background-position: 0 0;
+		background-position: 0% 0%;
 	}
 	100% {
-		background-position: -1400% 0;
+		background-position: -1400% 0%;
 	}
 }
 
@@ -467,7 +467,7 @@ h3 {
 
 @keyframes jaeger_falder_i_soevn_kf {
 	0% {
-		background-position: 0 -100%;
+		background-position: 0% -100%;
 	}
 	100% {
 		background-position: -1000% -100%;
@@ -488,7 +488,7 @@ h3 {
 
 @keyframes jaeger_sover_kf {
 	0% {
-		background-position: 0 -200%;
+		background-position: 0% -200%;
 	}
 	100% {
 		background-position: -1000% -200%;
@@ -506,7 +506,7 @@ h3 {
 
 @keyframes kanin_blinker_kf {
 	0% {
-		background-position: 0 -300%;
+		background-position: 0% -300%;
 	}
 	100% {
 		background-position: -800% -300%;
@@ -561,7 +561,11 @@ h3 {
 	background-image: url(images/taktikvalg_knap_b.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	opacity: 0.15;
+}
+
+#taktikvalg_knap_b:hover {
+	background-image: url(images/taktikvalg_knap_b_hover.svg);
+	transition: background-image 0.75s;
 }
 
 .taktikvalg_tekst {
@@ -571,14 +575,10 @@ h3 {
 	padding-left: 1vw;
 }
 
-#taktikvalg_tekst_a:hover {
+#taktikvalg_tekst_a:hover,
+#taktikvalg_tekst_b:hover {
 	color: #fff;
 	transition: color 0.75s;
-}
-
-
-#taktikvalg_tekst_b {
-	opacity: 0.15;
 }
 
 /* - - - - - - - scene: kanin_hopper_frem - - - - - - - - */
@@ -1256,7 +1256,7 @@ h3 {
 	}
 }
 
-/* - - - - - - - scene: mobil frem - - - - - - - - */
+/* - - - - - - - scene: mmobilRygerFrem - - - - - - - - */
 
 /* jæger sur (sprite) */
 
@@ -1355,7 +1355,7 @@ h3 {
 	}
 }
 
-/* - - - - - - - scene: jaeger skyder - - - - - - - - */
+/* - - - - - - - scene: mobilRyster - - - - - - - - */
 
 .mobil_ryster_possition {
 	top: 34vw;
@@ -1554,6 +1554,8 @@ h3 {
 	}
 }
 
+/* - - - - - - - scene: jaegerVaagen - - - - - - - - */
+
 /* jæger vågen (sprite) */
 
 .jaeger_vaagen {
@@ -1578,6 +1580,244 @@ h3 {
 .jaeger_vaagen_gal {
 	background-position: -1300% -300%;
 }
+
+/* - - - - - - - scene: gameInfo - - - - - - - - */
+
+#game_info_skilt {
+	width: 57.81vw;
+	height: 39.06vw;
+	top: 3.77vw;
+	left: 20.31vw;
+	padding: 7vw 10vw;
+	background-image: url(images/taktikvalg_skilt.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 145;
+}
+
+
+.info_skilt_rubrik {
+	font-family: 'playbillregular';
+	font-size: 10vw;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #42210b;
+	padding: 0;
+}
+
+.info_skilt_tekst {
+	font-family: 'arial_rounded_mt_boldbold';
+	font-size: 2.75vw;
+	color: #000;
+	padding-left: 1vw;
+}
+
+#info_skilt_tekst:hover {
+	color: #fff;
+	transition: color 0.75s;
+}
+
+#info_countdown_container {
+	position: absolute;
+	width: 10vw;
+	height: 10vw;
+	top: 25vw;
+	left: 25vw;
+	z-index: 500;
+}
+
+#info_countdown_sprite {
+	position: absolute;
+	width: 10vw;
+	height: 10vw;
+	top: 0;
+	left: 0;
+	background-image: url(images/info_skilt_countdown.svg);
+	background-size: 400% 100%;
+}
+
+.info_countdown_do {
+	animation-name: info_conutdown_do_kf;
+	animation-duration: 4s;
+	animation-timing-function: steps(4);
+	animation-iteration-count: 1;
+	animation-delay: 1s;
+}
+
+@keyframes info_conutdown_do_kf {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -400% 0;
+	}
+}
+
+
+/*SPIL STYLES */
+
+#kanin_drop {
+	position: absolute;
+	top: 5vw;
+	left: 8.5vw;
+	width: 9vw;
+	height: 23vw;
+	z-index: 150;
+}
+
+.gulerod_wrapper_1 {
+	position: absolute;
+	top: 10vw;
+	left: 30vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_2 {
+	position: absolute;
+	top: 10vw;
+	left: 40vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_3 {
+	position: absolute;
+	top: 10vw;
+	left: 50vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_4 {
+	position: absolute;
+	top: 10vw;
+	left: 50vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_5 {
+	position: absolute;
+	top: 10vw;
+	left: 50vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_6 {
+	position: absolute;
+	top: 10vw;
+	left: 50vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod_wrapper_7 {
+	position: absolute;
+	top: 10vw;
+	left: 50vw;
+	width: 5vw;
+	height: 6vw;
+	overflow: hidden;
+}
+
+.gulerod {
+	position: absolute;
+	top: 1vw;
+	left: 0.5vw;
+	width: 3.90vw;
+	height: 10.93vw;
+	z-index: 150;
+}
+
+.gulerod_jord {
+	position: absolute;
+	bottom: -0.5vw;
+	width: 5vw;
+	height: 1.30vw;
+	z-index: 200;
+	pointer-events: none;
+	background-image: url(images/jord.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.gulerod_puls {
+	animation-name: gulerod_puls_kf;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes gulerod_puls_kf {
+	0% {
+		transform: scale(1);
+
+	}
+	50% {
+		transform: scale(1.2);
+
+	}
+	100% {
+		transform: scale(1);
+
+	}
+}
+
+
+#timer_wrapper {
+	position: absolute;
+	top: 2vw;
+	left: 10vw;
+	width: 80vw;
+	height: 3vw;
+	background-color: #000;
+	border-color: #000;
+	border-style: solid;
+	border-width: 2px;
+	z-index: 500;
+}
+
+#timer_bar {
+	position: absolute;
+	top: 0vw;
+	left: 0vw;
+	width: 100%;
+	height: 100%;
+	background-color: #ff6700;
+}
+
+.timer_gaa_ned {
+	animation-name: timer_gaa_ned_kf;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes timer_gaa_ned_kf {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+
+.timer_gaa_ned_paused {
+	animation-play-state: paused;
+}
+
+
+
+
 
 /* jæger skyder (sprite) */
 
@@ -1714,35 +1954,84 @@ h3 {
 
 .gulerod_wrapper_1 {
 	position: absolute;
-	top: 10vw;
-	left: 30vw;
-	width: 5vw;
+	top: 26.4vw;
+	left: 31vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 200;
 }
 
 .gulerod_wrapper_2 {
 	position: absolute;
-	top: 10vw;
-	left: 40vw;
-	width: 5vw;
+	top: 27.8vw;
+	left: 36.5vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 200;
 }
 
 .gulerod_wrapper_3 {
 	position: absolute;
-	top: 10vw;
-	left: 50vw;
-	width: 5vw;
+	top: 30.2vw;
+	left: 40.8vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 200;
+}
+
+.gulerod_wrapper_4 {
+	position: absolute;
+	top: 23.5vw;
+	left: 34.5vw;
+	width: 4.5vw;
+	height: 6vw;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 150;
+}
+
+.gulerod_wrapper_5 {
+	position: absolute;
+	top: 24.5vw;
+	left: 40vw;
+	width: 4.75vw;
+	height: 6vw;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 150;
+}
+
+.gulerod_wrapper_6 {
+	position: absolute;
+	top: 27vw;
+	left: 45vw;
+	width: 4.5vw;
+	height: 6vw;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 150;
+}
+
+.gulerod_wrapper_7 {
+	position: absolute;
+	top: 22.5vw;
+	left: 43.5vw;
+	width: 4.5vw;
+	height: 6vw;
+	overflow: hidden;
+	pointer-events: none;
 }
 
 .gulerod {
 	position: absolute;
 	top: 1vw;
-	left: 0.5vw;
+	left: 0.3vw;
 	width: 3.90vw;
 	height: 10.93vw;
 	z-index: 150;
@@ -1758,6 +2047,7 @@ h3 {
 	background-image: url(images/jord.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
+	pointer-events: none;
 }
 
 .gulerod_puls {
