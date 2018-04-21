@@ -63,6 +63,7 @@ h3 {
 	height: 56.25vw;
 	position: relative;
 	overflow: hidden;
+	z-index: 1;
 }
 
 #baggrund_buske {
@@ -75,6 +76,7 @@ h3 {
 	top: 0;
 	left: 0;
 	z-index: 40;
+	pointer-events: none;
 }
 
 
@@ -88,6 +90,7 @@ h3 {
 	top: 0;
 	left: 0;
 	z-index: 30;
+	pointer-events: none;
 }
 
 #baggrund_mark {
@@ -100,6 +103,7 @@ h3 {
 	top: 0;
 	left: 0;
 	z-index: 20;
+	pointer-events: none;
 }
 
 #baggrund_bjerge {
@@ -112,6 +116,7 @@ h3 {
 	top: 0;
 	left: 0;
 	z-index: 0;
+	pointer-events: none;
 }
 
 /* sten */
@@ -233,6 +238,7 @@ h3 {
 	position: absolute;
 	width: 26.04vw;
 	height: 28.64vw;
+	pointer-events: none;
 }
 
 /* kanin sprite */
@@ -242,6 +248,7 @@ h3 {
 	height: 28.64vw;
 	background-image: url(images/kaninspritesheet.svg);
 	background-size: 1200% 800%;
+	pointer-events: none;
 }
 
 /* jæger container */
@@ -704,7 +711,6 @@ h3 {
 		background-position: -1200% -100%;
 	}
 }
-
 
 /* - - - - - - - scene: kanin_mark_hop_2 - - - - - - - - */
 
@@ -1273,6 +1279,8 @@ h3 {
 
 }
 
+/* Mobil */
+
 #mobil_sprite {
 	position: absolute;
 	width: 6.51vw;
@@ -1282,7 +1290,6 @@ h3 {
 	background-repeat: no-repeat;
 
 }
-
 
 
 /*mobil ryger frem (contaioner)*/
@@ -1358,16 +1365,16 @@ h3 {
 /* - - - - - - - scene: mobilRyster - - - - - - - - */
 
 .mobil_ryster_possition {
-	top: 34vw;
-	left: 39.5vw;
+	top: 36vw;
+	left: 36vw;
 	z-index: 100;
 	transform: rotate(0deg);
 }
 
 
 .mobil_ryster {
-	top: 34vw;
-	left: 39.5vw;
+	top: 36vw;
+	left: 36vw;
 	z-index: 50;
 	animation-name: mobil_ryster_kf;
 	animation-duration: 2s;
@@ -1450,7 +1457,7 @@ h3 {
 
 .mobil_ryster_2 {
 	top: 36vw;
-	left: 38vw;
+	left: 36vw;
 	z-index: 50;
 	animation-name: mobil_ryster_2_kf;
 	animation-duration: 2s;
@@ -1578,7 +1585,11 @@ h3 {
 /* jæger gal frame (sprite) */
 
 .jaeger_vaagen_gal {
-	background-position: -1300% -300%;
+	background-position: -1200% -300%;
+}
+
+.jaeger_vaagen_gal_2 {
+	background-position: -1200% -300%;
 }
 
 /* - - - - - - - scene: gameInfo - - - - - - - - */
@@ -1642,7 +1653,6 @@ h3 {
 	animation-duration: 4s;
 	animation-timing-function: steps(4);
 	animation-iteration-count: 1;
-	animation-delay: 1s;
 }
 
 @keyframes info_conutdown_do_kf {
@@ -1654,8 +1664,13 @@ h3 {
 	}
 }
 
+/* - - - - - - - SPIL STYLES - - - - - - -  */
 
-/*SPIL STYLES */
+.kanin_game_possition {
+	top: 13vw;
+	left: 15vw;
+	z-index: 25;
+}
 
 #kanin_drop {
 	position: absolute;
@@ -1663,79 +1678,95 @@ h3 {
 	left: 8.5vw;
 	width: 9vw;
 	height: 23vw;
-	z-index: 150;
+	z-index: 25;
+	pointer-events: all;
 }
 
 .gulerod_wrapper_1 {
 	position: absolute;
-	top: 10vw;
-	left: 30vw;
-	width: 5vw;
+	top: 26.4vw;
+	left: 31vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 23;
 }
 
 .gulerod_wrapper_2 {
 	position: absolute;
-	top: 10vw;
-	left: 40vw;
-	width: 5vw;
+	top: 27.8vw;
+	left: 36.5vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 23;
 }
 
 .gulerod_wrapper_3 {
 	position: absolute;
-	top: 10vw;
-	left: 50vw;
-	width: 5vw;
+	top: 30.2vw;
+	left: 40.8vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 23;
 }
 
 .gulerod_wrapper_4 {
 	position: absolute;
-	top: 10vw;
-	left: 50vw;
-	width: 5vw;
+	top: 23.5vw;
+	left: 34.5vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 22;
 }
 
 .gulerod_wrapper_5 {
 	position: absolute;
-	top: 10vw;
-	left: 50vw;
-	width: 5vw;
+	top: 24.5vw;
+	left: 40vw;
+	width: 4.75vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 22;
 }
 
 .gulerod_wrapper_6 {
 	position: absolute;
-	top: 10vw;
-	left: 50vw;
-	width: 5vw;
+	top: 27vw;
+	left: 45vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 22;
 }
 
 .gulerod_wrapper_7 {
 	position: absolute;
-	top: 10vw;
-	left: 50vw;
-	width: 5vw;
+	top: 22.5vw;
+	left: 43.5vw;
+	width: 4.5vw;
 	height: 6vw;
 	overflow: hidden;
+	pointer-events: none;
+	z-index: 21;
 }
 
 .gulerod {
 	position: absolute;
 	top: 1vw;
-	left: 0.5vw;
+	left: 0.3vw;
 	width: 3.90vw;
 	height: 10.93vw;
 	z-index: 150;
+	pointer-events: all;
 }
 
 .gulerod_jord {
@@ -1748,6 +1779,7 @@ h3 {
 	background-image: url(images/jord.svg);
 	background-size: 100%;
 	background-repeat: no-repeat;
+	pointer-events: none;
 }
 
 .gulerod_puls {
@@ -1760,18 +1792,15 @@ h3 {
 @keyframes gulerod_puls_kf {
 	0% {
 		transform: scale(1);
-
 	}
 	50% {
 		transform: scale(1.2);
-
 	}
 	100% {
 		transform: scale(1);
 
 	}
 }
-
 
 #timer_wrapper {
 	position: absolute;
@@ -1783,7 +1812,7 @@ h3 {
 	border-color: #000;
 	border-style: solid;
 	border-width: 2px;
-	z-index: 500;
+	z-index: 150;
 }
 
 #timer_bar {
@@ -1797,7 +1826,7 @@ h3 {
 
 .timer_gaa_ned {
 	animation-name: timer_gaa_ned_kf;
-	animation-duration: 5s;
+	animation-duration: 10s;
 	animation-timing-function: linear;
 	animation-iteration-count: 1;
 }
@@ -1814,9 +1843,6 @@ h3 {
 .timer_gaa_ned_paused {
 	animation-play-state: paused;
 }
-
-
-
 
 
 /* jæger skyder (sprite) */
@@ -1897,8 +1923,6 @@ h3 {
 	}
 }
 
-
-
 /* - - - - - - - scene: xxx - - - - - - - - */
 
 /* kanin stilbillede - (sprite) */
@@ -1916,237 +1940,3 @@ h3 {
 .kanin_uden_krop {
 	background-position: 0 -700%;
 }
-
-/* spil-slutning */
-
-#slut_du_vinder_skilt {}
-
-#slut_du_vinder_skilt {}
-
-#slut_spil_igen-knap {}
-
-#slut_afslut_spil_knap {}
-
-/* - - - - - - - Spil - - - - - - - - */
-
-/*kanin_spil_position (container) */
-
-.kanin_spil_possition {
-	top: 11.5vw;
-	left: 21vw;
-	z-index: 25;
-}
-
-/*kanin_spil_Størrelse (sprite) */
-
-.kanin_spil_size {
-	transform: scale(0.72);
-}
-
-#kanin_drop {
-	position: absolute;
-	top: 5vw;
-	left: 8.5vw;
-	width: 9vw;
-	height: 23vw;
-	z-index: 150;
-}
-
-.gulerod_wrapper_1 {
-	position: absolute;
-	top: 26.4vw;
-	left: 31vw;
-	width: 4.5vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-	z-index: 200;
-}
-
-.gulerod_wrapper_2 {
-	position: absolute;
-	top: 27.8vw;
-	left: 36.5vw;
-	width: 4.5vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-	z-index: 200;
-}
-
-.gulerod_wrapper_3 {
-	position: absolute;
-	top: 30.2vw;
-	left: 40.8vw;
-	width: 4.5vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-	z-index: 200;
-}
-
-.gulerod_wrapper_4 {
-	position: absolute;
-	top: 23.5vw;
-	left: 34.5vw;
-	width: 4.5vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-	z-index: 150;
-}
-
-.gulerod_wrapper_5 {
-	position: absolute;
-	top: 24.5vw;
-	left: 40vw;
-	width: 4.75vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-	z-index: 150;
-}
-
-.gulerod_wrapper_6 {
-	position: absolute;
-	top: 27vw;
-	left: 45vw;
-	width: 4.5vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-	z-index: 150;
-}
-
-.gulerod_wrapper_7 {
-	position: absolute;
-	top: 22.5vw;
-	left: 43.5vw;
-	width: 4.5vw;
-	height: 6vw;
-	overflow: hidden;
-	pointer-events: none;
-}
-
-.gulerod {
-	position: absolute;
-	top: 1vw;
-	left: 0.3vw;
-	width: 3.90vw;
-	height: 10.93vw;
-	z-index: 150;
-}
-
-.gulerod_jord {
-	position: absolute;
-	bottom: -0.5vw;
-	width: 5vw;
-	height: 1.30vw;
-	z-index: 200;
-	pointer-events: none;
-	background-image: url(images/jord.svg);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	pointer-events: none;
-}
-
-.gulerod_puls {
-	animation-name: gulerod_puls_kf;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-}
-
-@keyframes gulerod_puls_kf {
-	0% {
-		transform: scale(1);
-
-	}
-	50% {
-		transform: scale(1.2);
-
-	}
-	100% {
-		transform: scale(1);
-
-	}
-}
-
-
-#timer_wrapper {
-	position: absolute;
-	top: 2vw;
-	left: 10vw;
-	width: 80vw;
-	height: 3vw;
-	background-color: #000;
-	border-color: #000;
-	border-style: solid;
-	border-width: 2px;
-}
-
-#timer_bar {
-	position: absolute;
-	top: 0vw;
-	left: 0vw;
-	width: 100%;
-	height: 100%;
-	background-color: #ff6700;
-}
-
-.timer_gaa_ned {
-	animation-name: timer_gaa_ned_kf;
-	animation-duration: 5s;
-	animation-timing-function: linear;
-	animation-iteration-count: 1;
-}
-
-@keyframes timer_gaa_ned_kf {
-	0% {
-		width: 100%;
-	}
-	100% {
-		width: 0%;
-	}
-}
-
-.timer_gaa_ned_paused {
-	animation-play-state: paused;
-}
-
-
-
-
-
-/* Vindue bliver smadret */
-
-#vindue_container {}
-
-#vindue_sprite {}
-
-.vindue_smadrer {}
-
-
-/* Spil-del */
-
-#spil_infoskilt {}
-
-#spil_ok-knap {}
-
-#spil_gulerod_1 {}
-
-#spil_gulerod_2 {}
-
-#spil_gulerod_3 {}
-
-#spil_gulerod_4 {}
-
-#spil_gulerod_5 {}
-
-#spil_gulerod_6 {}
-
-#spil_gulerod_7 {}
-
-#spil_scoreboard {}
-
-#spil_timer {}

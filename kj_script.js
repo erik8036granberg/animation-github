@@ -962,12 +962,14 @@ function jaegerVaagen() {
 	// fjern jaeger sprite-animation: jaeger_vaagner
 	$("#jaeger_sprite").removeClass("jaeger_vaagner");
 
-	// start jaeger sprite-animation: jaeger_vaagner
+	// start jaeger sprite-animation: jaeger_vaagen_gal
 	$("#jaeger_sprite").addClass("jaeger_vaagen_gal");
 
 	// - - -
 
-	$("#jaeger_sprite").on("animationend", jaegerVaagen2);
+	//	$("#jaeger_sprite").on("animationend", jaegerVaagen2);
+
+	jaegerVaagen2();
 }
 
 // - - - - -  jaegerVaagen - - - -
@@ -975,14 +977,14 @@ function jaegerVaagen() {
 function jaegerVaagen2() {
 	console.log("jaegerVaagen2");
 
-	$("#mobil_container").off("animationend", jaegerVaagen2);
+	//	$("#jaeger_sprite").off("animationend", jaegerVaagen2);
 
 	// - - -
 
-	// fjern jaeger sprite-animation: jaeger_vaagner
+	// fjern jaeger sprite-animation: jaeger_vaagen_gal
 	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal");
 
-	// start jaeger sprite-animation: jaeger_vaagner
+	// start jaeger sprite-animation: jaeger_vaagen
 	$("#jaeger_sprite").addClass("jaeger_vaagen");
 
 	// - - -
@@ -998,12 +1000,6 @@ function jaegerGevaerTabt() {
 	$("#jaeger_sprite").off("animationend", jaegerGevaerTabt);
 
 	// - - -
-
-	// Slut jaeger sprite-animation: jaeger_vaagen
-	$("#jaeger_sprite").removeClass("jaeger_vaagen");
-
-	// sæt jaeger sprite-frame: jaeger_vaagen
-	$("#jaeger_sprite").addClass("jaeger_vaagen_gal");
 
 	// Slut lyd effekt_mobilbrummen_3
 	$("effekt_mobilbrummen_3").off("ended");
@@ -1030,6 +1026,12 @@ function gameInfo() {
 	console.log("gameInfo");
 
 	$("#mobil_container").off("animationend", gameInfo);
+
+	// Slut jaeger sprite-animation: jaeger_vaagen
+	$("#jaeger_sprite").removeClass("jaeger_vaagen");
+
+	// sæt jaeger sprite-frame: jaeger_vaagen
+	$("#jaeger_sprite").addClass("jaeger_vaagen_gal_2");
 
 	// - - -
 
@@ -1060,21 +1062,30 @@ function gameInfo() {
 
 function GameSetup() {
 	console.log("GameSetup");
-	alert("gameSetup");
 
 	$("#info_countdown_sprite").off("animationend", GameSetup);
 
 	// - - -
 
 	// skjul gameInfo-skilt
+	$("#game_info_skilt").removeClass("synlig");
+	$("#game_info_skilt").addClass("skjult");
 
-	// begynd kanin sprite size: .kanin_size
+	// vis nedtoning
+	$("#nedtoning").removeClass("synlig");
+	$("#nedtoning").addClass("skjult");
 
-	// Slut kanin possition: .kanin_mark_possition_6
+	// begynd: kanin mobil_size
+	$("#kanin_sprite").addClass("kanin_mobil_size");
+
+	// Slut kanin possition: kanin_mark_possition_6
+	$("#kanin_container").removeClass("kanin_mark_possition_6");
 
 	// Start kanin possition: .kanin_game_possition
+	$("#kanin_container").addClass("kanin_game_possition");
 
 	// Gå til gameBegyndTimer
+	gameBegyndTimer();
 }
 
 //- - - - - - gameBegyndTimer - - - - - -
@@ -1083,16 +1094,7 @@ function gameBegyndTimer() {
 	console.log("gameBegyndTimer");
 
 	//Sæt en timer: gameTimer
-	timer = setTimeout(gameTabt, 5000);
-
-	// Sæt alle gulerødder “#drag” til draggable = true
-	document.getElementById("drag1").draggable = true;
-	document.getElementById("drag2").draggable = true;
-	document.getElementById("drag3").draggable = true;
-	document.getElementById("drag4").draggable = true;
-	document.getElementById("drag5").draggable = true;
-	document.getElementById("drag6").draggable = true;
-	document.getElementById("drag7").draggable = true;
+	timer = setTimeout(gameTabt, 10000);
 
 	// Begynd gulerod_puls
 	$(".gulerod").addClass("gulerod_puls");
@@ -1185,13 +1187,6 @@ function gameVundet() {
 	$("#timer_bar").addClass("timer_gaa_ned_paused");
 }
 
-
-// - - - - -  friBane - - - -
-
-function friBane() {
-	console.log("friBane");
-
-}
 
 // - - - - -  friBane - - - -
 
