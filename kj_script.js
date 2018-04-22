@@ -80,6 +80,7 @@ $("#taktikvalg_skilt").addClass("skjult");
 $("#game_info_skilt").addClass("skjult");
 $("#game_over_skilt").addClass("skjult");
 $("#vundet_let_skilt").addClass("skjult");
+$("#game_win_skilt").addClass("skjult");
 $("#nedtoning").addClass("skjult");
 
 $("#timer_wrapper").hide();
@@ -1196,7 +1197,7 @@ function jaegerSkyder() {
 	// start cenasurskilt-move: censur_cover
 	$("#censur_container").addClass("censur_cover");
 
-	// slut jaeger sprite-frame: jaeger_vaagen
+	// slut jaeger sprite-frame: jaeger_vaagen_gal_2
 	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal_2");
 
 	// start sprite-animation: jaeger_skyder
@@ -1264,41 +1265,43 @@ function gameVundetHop() {
 	// start sprite-aniamtion: kanin_hop_glad
 	$("#kanin_sprite").addClass("kanin_hop_glad");
 
-	$("#kanin_sprite").on("animationend", gameJaegerTaber1);
+	$("#kanin_sprite").on("animationend", gameVundetHop2);
 }
 
 // - - - - -  gameVundetHop2 - - - -
 
-function gameJaegerTaber1() {
-	console.log("gameJaegerTaber1");
+function gameVundetHop2() {
+	console.log("gameVundetHop2");
 
-	$("#kanin_sprite").off("animationend", gameJaegerTaber1);
+	$("#kanin_sprite").off("animationend", gameVundetHop2);
 
 	// fjern jaeger sprite-frame: jaeger_vaagen_gal
-	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal");
+	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal_2");
 
 	// start Jaeger sprite-animation: jaeger_taber
 	$("#jaeger_sprite").addClass("jaeger_taber");
 
+	// skjul Timer #timer_wrapper + #timer_bar
+	$("#timer_wrapper").hide();
+
 	// Når Jaeger sprite-animation: jaeger_taber er færdig
-	$("#jaeger_sprite").on("animationend", gameJaegerTaber2);
+	$("#jaeger_sprite").on("animationend", gameVundetHop3);
 }
 
 // - - - - -  gameJaegerTaber - - - -
 
-function gameJaegerTaber2() {
-	console.log("gameJaegerTaber");
+function gameVundetHop3() {
+	console.log("gameVundetHop3");
 
-	$("#kanin_sprite").off("animationend", gameJaegerTaber2);
+	$("#jaeger_sprite").off("animationend", gameVundetHop3);
 
-	// start Jaeger sprite-animation: jaeger_taber
-	$("#jaeger_sprite").addClass("jaeger_taber");
+	// fjern Jaeger sprite-animation: jaeger_taber
+	$("#jaeger_sprite").removeClass("jaeger_taber");
 
 	// start Jaeger sprite-frame: jaeger_tabt
 	$("#jaeger_sprite").addClass("jaeger_tabt");
 
-	// Når Jaeger sprite-animation: jaeger_taber er færdig
-	$("#jaeger_sprite").on("animationend", gameWin);
+	gameWin();
 }
 
 // - - - - -  friBane - - - -
@@ -1480,34 +1483,28 @@ function gameWin() {
 	// Når Jaeger sprite-animation: jaeger_taber er færdig
 	$("#jaeger_sprite").on("animationend", gameWin);
 
-	// fjern jaeger sprite-frame: jaeger_taber
-	$("#jaeger_sprite").removeClass("jaeger_taber");
+	// vis game over-skilt
+	$("#game_win_skilt").removeClass("skjult");
+	$("#game_win_skilt").addClass("synlig");
 
-	// start Jaeger sprite-animation: jaeger_vaagen_gal
-	$("#jaeger_sprite").addClass("jaeger_vaagen_gal");
+	// vis nedtoning
+	$("#nedtoning").removeClass("skjult");
+	$("#nedtoning").addClass("synlig");
 
-	//	// vis game over-skilt
-	//	$("#game_win_skilt").removeClass("skjult");
-	//	$("#game_win_skilt").addClass("synlig");
-	//
-	//	// vis nedtoning
-	//	$("#nedtoning").removeClass("skjult");
-	//	$("#nedtoning").addClass("synlig");
-	//
-	//	// Der er klikket på knap
-	//	$("#game_over_knap").on("click", gameWinKlikPaaKnap);
-	//
-	//	// Der er klikket på tekst
-	//	$("#game_over_tekst").on("click", gameWinKlikPaaKnap);
+	// Der er klikket på knap
+	$("#game_win_knap").on("click", gameWinKlikPaaKnap);
+
+	// Der er klikket på tekst
+	$("#game_win_tekst").on("click", gameWinKlikPaaKnap);
 }
 
-// - - - - -  GameOverKlikPaaKnap - - - -
+// - - - - -  gameWinKlikPaaKnap - - - -
 
 function gameWinKlikPaaKnap() {
-	console.log("GameOverKlikPaaKnap");
+	console.log("gameWinKlikPaaKnap");
 
-	$("#game_over_knap").off("click", gameWinKlikPaaKnap);
-	$("#game_over_tekst").off("click", gameWinKlikPaaKnap);
+	$("#game_win_knap").off("click", gameWinKlikPaaKnap);
+	$("#game_win_tekst").off("click", gameWinKlikPaaKnap);
 
 	// knaplyd effekt_bank spilles
 	$("#effekt_bank")[0].play();
