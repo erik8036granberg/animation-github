@@ -1365,16 +1365,16 @@ h3 {
 /* - - - - - - - scene: mobilRyster - - - - - - - - */
 
 .mobil_ryster_possition {
-	top: 36vw;
-	left: 36vw;
+	top: 34vw;
+	left: 39.5vw;
 	z-index: 100;
 	transform: rotate(0deg);
 }
 
 
 .mobil_ryster {
-	top: 36vw;
-	left: 36vw;
+	top: 34vw;
+	left: 39.5vw;
 	z-index: 50;
 	animation-name: mobil_ryster_kf;
 	animation-duration: 2s;
@@ -1456,8 +1456,8 @@ h3 {
 }
 
 .mobil_ryster_2 {
-	top: 36vw;
-	left: 36vw;
+	top: 34vw;
+	left: 39.5vw;
 	z-index: 50;
 	animation-name: mobil_ryster_2_kf;
 	animation-duration: 2s;
@@ -1672,6 +1672,13 @@ h3 {
 	z-index: 25;
 }
 
+.mobil_game_possition {
+	top: 36vw;
+	left: 36vw;
+	z-index: 25;
+}
+
+
 #kanin_drop {
 	position: absolute;
 	top: 5vw;
@@ -1765,7 +1772,7 @@ h3 {
 	left: 0.3vw;
 	width: 3.90vw;
 	height: 10.93vw;
-	z-index: 150;
+	z-index: 25;
 	pointer-events: all;
 }
 
@@ -1774,7 +1781,7 @@ h3 {
 	bottom: -0.5vw;
 	width: 5vw;
 	height: 1.30vw;
-	z-index: 200;
+	z-index: 30;
 	pointer-events: none;
 	background-image: url(images/jord.svg);
 	background-size: 100%;
@@ -1881,7 +1888,7 @@ h3 {
 }
 
 .censur_cover {
-	z-index: 150;
+
 	top: 24vw;
 	left: 23vw;
 	animation-name: censur_cover_kf;
@@ -1901,27 +1908,82 @@ h3 {
 	1% {
 		top: 24vw;
 		left: 23vw;
-		z-index: 150;
-		transform: scale(1.2);
+		z-index: 50;
+		transform: scale(1);
 	}
 	25% {
 		top: 24vw;
 		left: 23vw;
-		z-index: 150;
+		z-index: 50;
 		transform: scale(1.25) rotate(5deg);
 	}
 	75% {
 		top: 23vw;
 		left: 23vw;
-		z-index: 150;
-		transform: scale(1.3) rotate(-5deg);
+		z-index: 50;
+		transform: scale(1.35) rotate(-5deg);
 	}
 	100% {
 		top: 23vw;
 		left: 23vw;
-		z-index: 150;
-		transform: scale(1.5);
+		z-index: 50;
+		transform: scale(1.45);
 	}
+}
+
+/* - - - - - - - scene: GameOver - - - - - - - - */
+
+#game_over_skilt {
+	width: 57.81vw;
+	height: 39.06vw;
+	top: 3.77vw;
+	left: 20.31vw;
+	padding: 7vw 10vw;
+	background-image: url(images/taktikvalg_skilt.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 145;
+}
+
+.game_over_rubrik {
+	font-family: 'playbillregular';
+	font-size: 10vw;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #42210b;
+	padding: 0 0 1vw;
+}
+
+.game_over_wrapper {
+	display: flex;
+	margin: 0 0 2vw;
+}
+
+#game_over_knap {
+	min-width: 6.51vw;
+	height: 5.98vw;
+	background-image: url(images/game_over_knap.svg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+#game_over_knap:hover {
+	background-image: url(images/game_over_knap_hover.svg);
+	transition: background-image 0.75s;
+}
+
+
+.game_over_tekst {
+	font-family: 'arial_rounded_mt_boldbold';
+	font-size: 2.5vw;
+	color: #000;
+	padding: 1.5vw 0 0 1.5vw;
+}
+
+#game_over_tekst:hover {
+	color: #fff;
+	transition: color 0.75s;
 }
 
 /* - - - - - - - scene: xxx - - - - - - - - */

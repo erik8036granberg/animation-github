@@ -78,6 +78,7 @@ var gameInfoTimer;
 $("#start_skilt").addClass("skjult");
 $("#taktikvalg_skilt").addClass("skjult");
 $("#game_info_skilt").addClass("skjult");
+$("#game_over_skilt").addClass("skjult");
 $("#nedtoning").addClass("skjult");
 
 $("#timer_wrapper").hide();
@@ -1177,9 +1178,6 @@ function gameTabt() {
 	document.getElementById("drag6").draggable = false;
 	document.getElementById("drag7").draggable = false;
 
-	// Sæt censur_skilt possition
-	$("#censur_container").addClass("censur_possition");
-
 	// - - -
 
 	jaegerSkyder();
@@ -1219,6 +1217,12 @@ function efterSkud() {
 
 	$("#jaeger_sprite").off("animationend", efterSkud);
 
+	// skjul Timer #timer_wrapper + #timer_bar
+	$("#timer_wrapper").hide();
+
+	//start #timer_bar animation: .timer_gaa_ned
+	$("#timer_bar").removeClass("timer_gaa_ned");
+
 	// Slut sprite-animation: jaeger_skyder
 	$("#jaeger_sprite").removeClass("jaeger_skyder");
 
@@ -1229,7 +1233,7 @@ function efterSkud() {
 	$("effekt_skud").off("ended");
 
 	//efter 4 sec gå til fail
-	var myTimer = setTimeout(gameOver, 4000);
+	setTimeout(gameOver, 4000);
 }
 
 
@@ -1275,7 +1279,7 @@ function taktikValgKlikPaaKnapB() {
 
 }
 
-// - - - - -  taktikValgKlikPaaKnapB - - - - -
+// - - - - -  kungFuPlan - - - - -
 
 function kungFuPlan() {
 	console.log("kungFuPlan");
@@ -1322,6 +1326,47 @@ function kungFuPlan() {
 
 // - - - - -  GameOver - - - -
 
-function GameOver() {
-	console.log("GameOver");
+function gameOver() {
+	console.log("gameOver");
+
+	// vis gameInfo-skilt
+	$("#game_over_skilt").removeClass("skjult");
+	$("#game_over_skilt").addClass("synlig");
+
+	// vis nedtoning
+	$("#nedtoning").removeClass("skjult");
+	$("#nedtoning").addClass("synlig");
+
+	// Der er klikket på knap
+	$("#game_over_knap").on("click", GameOverKlikPaaKnap);
+
+	// Der er klikket på tekst
+	$("#game_over_tekst").on("click", GameOverKlikPaaKnap);
+}
+
+// - - - - -  GameOverKlikPaaKnap - - - -
+
+function GameOverKlikPaaKnap() {
+	console.log("GameOverKlikPaaKnap");
+
+	$("#game_over_knap").off("click", GameOverKlikPaaKnap);
+	$("#game_over_tekst").off("click", GameOverKlikPaaKnap);
+
+	// knaplyd effekt_bank spilles
+	$("#effekt_bank")[0].play();
+
+	//  Når lyden har spillet spillet
+	$("#effekt_bank").on("ended", reloadPage);
+}
+
+// - - - - -  reloadPage - - - -
+
+function reloadPage() {
+	console.log("reloadPage");
+
+	//  Når lyden har spillet spillet
+	$("#effekt_bank").off("ended", reloadPage);
+
+	// Reload page uden cache
+	window.location.reload(true);
 }
