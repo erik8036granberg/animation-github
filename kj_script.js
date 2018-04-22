@@ -738,7 +738,7 @@ function randomValg() {
 
 	$("#kanin_container").off("animationend", randomValg);
 
-	if (Math.random() >= 0.01) {
+	if (Math.random() >= 0.20) {
 		kaninMobilRinger();
 		console.log("random = mobil ringer!");
 	} else {
@@ -1671,6 +1671,12 @@ function kungFukaninMarkHop4Possition() {
 	$("#blackout").removeClass("synlig");
 	$("#blackout").addClass("skjult");
 	$("#blackout").removeClass("fade_to_black");
+
+	// fjern jaeger sprite-frame: jaeger_sover
+	$("#jaeger_sprite").removeClass("jaeger_sover");
+
+	// sæt Jaeger sprite-animation: jaeger_vaagen_gal_2
+	$("#jaeger_sprite").addClass("jaeger_sidder");
 
 	// fjern blackout-tekst
 	$("#blackout_tekst").removeClass("synlig");
