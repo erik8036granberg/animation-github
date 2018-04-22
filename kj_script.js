@@ -1070,6 +1070,9 @@ function allowDrop(ev) {
 function drag(ev) {
 	console.log("drag");
 	ev.dataTransfer.setData('text', ev.target.id);
+
+	// Start knaplyd effekt_bank
+	$("#effekt_swup")[0].play();
 }
 
 //- - - - - - drop - - - - - -
