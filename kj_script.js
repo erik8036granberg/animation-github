@@ -800,7 +800,7 @@ function randomValg() {
 
 	$("#kanin_container").off("animationend", randomValg);
 
-	if (Math.random() >= 0.999) {
+	if (Math.random() >= 0.01) {
 		kaninMobilRinger();
 		console.log("random = mobil ringer!");
 	} else {
@@ -1233,7 +1233,7 @@ function efterSkud() {
 	// Slut lyd effekt_skud
 	$("effekt_skud").off("ended");
 
-	//efter 4 sec gå til fail
+	//efter 4 sec gå til gameOver
 	setTimeout(gameOver, 4000);
 }
 
@@ -1249,8 +1249,40 @@ function gameVundet() {
 
 	// Sæt timer på pause
 	$("#timer_bar").addClass("timer_gaa_ned_paused");
+
+	gameVundetHop();
 }
 
+// - - - - -  gameVundetHop - - - -
+
+function gameVundetHop() {
+	console.log("gameVundetHop");
+
+	// slut sprite-still: kanin_bange
+	$("#kanin_sprite").removeClass("kanin_bange");
+
+	// start sprite-aniamtion: kanin_hop_glad
+	$("#kanin_sprite").addClass("kanin_hop_glad");
+
+	$("#kanin_sprite").on("animationend", gameVundetHop2);
+}
+
+// - - - - -  gameVundetHop2 - - - -
+
+function gameVundetHop2() {
+	console.log("gameVundetHop2");
+
+	$("#kanin_sprite").off("animationend", gameVundetHop2);
+
+	// fjern jaeger sprite-frame: jaeger_vaagen_gal
+	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal");
+
+	// start Jaeger sprite-animation: jaeger_taber
+	$("#jaeger_sprite").addClass("jaeger_taber");
+
+	// Når Jaeger sprite-animation: jaeger_taber er færdig
+	$("#jaeger_sprite").on("animationend", gameWin);
+}
 
 // - - - - -  friBane - - - -
 
@@ -1287,7 +1319,7 @@ function friBane2() {
 // - - - - -  VundetLet - - - -
 
 function vundetLet() {
-	console.log("friBane2");
+	console.log("vundetLet");
 
 	$("#kanin_sprite").off("animationend", vundetLet);
 
@@ -1309,7 +1341,7 @@ function vundetLet() {
 // - - - - -  GameOverKlikPaaKnap - - - -
 
 function vundetLetKlikPaaKnap() {
-	console.log("GameOverKlikPaaKnap");
+	console.log("vundetLetKlikPaaKnap");
 
 	$("#vundet_let_knap").off("click", vundetLetKlikPaaKnap);
 	$("#vundet_let_tekst").off("click", vundetLetKlikPaaKnap);
@@ -1415,6 +1447,44 @@ function gameOverKlikPaaKnap() {
 
 	$("#game_over_knap").off("click", gameOverKlikPaaKnap);
 	$("#game_over_tekst").off("click", gameOverKlikPaaKnap);
+
+	// knaplyd effekt_bank spilles
+	$("#effekt_bank")[0].play();
+
+	//  Når lyden har spillet spillet
+	$("#effekt_bank").on("ended", reloadPage);
+}
+
+// - - - - -  GameWin - - - -
+
+function gameWin() {
+	console.log("gameWin");
+
+	// Når Jaeger sprite-animation: jaeger_taber er færdig
+	$("#jaeger_sprite").on("animationend", gameWin);
+
+	//	// vis game over-skilt
+	//	$("#game_win_skilt").removeClass("skjult");
+	//	$("#game_win_skilt").addClass("synlig");
+	//
+	//	// vis nedtoning
+	//	$("#nedtoning").removeClass("skjult");
+	//	$("#nedtoning").addClass("synlig");
+	//
+	//	// Der er klikket på knap
+	//	$("#game_over_knap").on("click", gameWinKlikPaaKnap);
+	//
+	//	// Der er klikket på tekst
+	//	$("#game_over_tekst").on("click", gameWinKlikPaaKnap);
+}
+
+// - - - - -  GameOverKlikPaaKnap - - - -
+
+function gameWinKlikPaaKnap() {
+	console.log("GameOverKlikPaaKnap");
+
+	$("#game_over_knap").off("click", gameWinKlikPaaKnap);
+	$("#game_over_tekst").off("click", gameWinKlikPaaKnap);
 
 	// knaplyd effekt_bank spilles
 	$("#effekt_bank")[0].play();

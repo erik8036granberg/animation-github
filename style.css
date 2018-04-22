@@ -1972,6 +1972,12 @@ h3 {
 	}
 }
 
+/* kanin stilbillede - (sprite) */
+
+.kanin_glad {
+	background-position: 0 -400%;
+}
+
 /* jæger taber (sprite) */
 
 .jaeger_taber {
@@ -2104,12 +2110,6 @@ h3 {
 }
 
 /* - - - - - - - scene: xxx - - - - - - - - */
-
-/* kanin stilbillede - (sprite) */
-
-.kanin_glad {
-	background-position: 0 -400%;
-}
 
 /* kanin stilbillede - (sprite) */
 
