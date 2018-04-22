@@ -2169,3 +2169,64 @@ h3 {
 	color: #fff;
 	transition: color 0.75s;
 }
+
+
+#blackout {
+	width: 100vw;
+	height: 56.25vw;
+	top: 0;
+	left: 0;
+	z-index: 150;
+	background-color: #000;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+
+#blackout_skilt {
+	width: 60vw;
+	height: 39.06vw;
+	top: 0;
+	left: 20.31vw;
+	padding: 7vw 10vw;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 145;
+}
+
+.blackout_rubrik {
+	font-family: 'playbillregular';
+	font-size: 10vw;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #fff;
+	padding: 0 0 1vw;
+}
+
+.blackout_tekst {
+	font-family: 'arial_rounded_mt_boldbold';
+	font-size: 2.5vw;
+	color: #fff;
+	padding: 1.5vw 0 0 1.5vw;
+}
+
+.fade_to_black {
+	animation-name: fade_to_black_kf;
+	animation-duration: 8s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fade_to_black_kf {
+	0% {
+		background-color: transparent;
+	}
+	30% {
+		background-color: #000;
+	}
+	100% {
+		background-color: #000;
+	}
+}
