@@ -1264,21 +1264,38 @@ function gameVundetHop() {
 	// start sprite-aniamtion: kanin_hop_glad
 	$("#kanin_sprite").addClass("kanin_hop_glad");
 
-	$("#kanin_sprite").on("animationend", gameVundetHop2);
+	$("#kanin_sprite").on("animationend", gameJaegerTaber1);
 }
 
 // - - - - -  gameVundetHop2 - - - -
 
-function gameVundetHop2() {
-	console.log("gameVundetHop2");
+function gameJaegerTaber1() {
+	console.log("gameJaegerTaber1");
 
-	$("#kanin_sprite").off("animationend", gameVundetHop2);
+	$("#kanin_sprite").off("animationend", gameJaegerTaber1);
 
 	// fjern jaeger sprite-frame: jaeger_vaagen_gal
 	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal");
 
 	// start Jaeger sprite-animation: jaeger_taber
 	$("#jaeger_sprite").addClass("jaeger_taber");
+
+	// Når Jaeger sprite-animation: jaeger_taber er færdig
+	$("#jaeger_sprite").on("animationend", gameJaegerTaber2);
+}
+
+// - - - - -  gameJaegerTaber - - - -
+
+function gameJaegerTaber2() {
+	console.log("gameJaegerTaber");
+
+	$("#kanin_sprite").off("animationend", gameJaegerTaber2);
+
+	// start Jaeger sprite-animation: jaeger_taber
+	$("#jaeger_sprite").addClass("jaeger_taber");
+
+	// start Jaeger sprite-frame: jaeger_tabt
+	$("#jaeger_sprite").addClass("jaeger_tabt");
 
 	// Når Jaeger sprite-animation: jaeger_taber er færdig
 	$("#jaeger_sprite").on("animationend", gameWin);
@@ -1462,6 +1479,12 @@ function gameWin() {
 
 	// Når Jaeger sprite-animation: jaeger_taber er færdig
 	$("#jaeger_sprite").on("animationend", gameWin);
+
+	// fjern jaeger sprite-frame: jaeger_taber
+	$("#jaeger_sprite").removeClass("jaeger_taber");
+
+	// start Jaeger sprite-animation: jaeger_vaagen_gal
+	$("#jaeger_sprite").addClass("jaeger_vaagen_gal");
 
 	//	// vis game over-skilt
 	//	$("#game_win_skilt").removeClass("skjult");
