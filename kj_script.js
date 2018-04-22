@@ -79,6 +79,7 @@ $("#start_skilt").addClass("skjult");
 $("#taktikvalg_skilt").addClass("skjult");
 $("#game_info_skilt").addClass("skjult");
 $("#game_over_skilt").addClass("skjult");
+$("#vundet_let_skilt").addClass("skjult");
 $("#nedtoning").addClass("skjult");
 
 $("#timer_wrapper").hide();
@@ -799,7 +800,7 @@ function randomValg() {
 
 	$("#kanin_container").off("animationend", randomValg);
 
-	if (Math.random() >= 0.001) {
+	if (Math.random() >= 0.999) {
 		kaninMobilRinger();
 		console.log("random = mobil ringer!");
 	} else {
@@ -1256,7 +1257,70 @@ function gameVundet() {
 function friBane() {
 	console.log("friBane");
 
+	// slut sprite-still: kanin_ryg_til
+	$("#kanin_sprite").removeClass("kanin_ryg_til");
+
+	// slut sprite-aniamtion: kanin_drej_i_luften
+	$("#kanin_sprite").addClass("kanin_drej_i_luften_win");
+
+	// kaninen har vendt sig
+	$("#kanin_sprite").on("animationend", friBane2);
 }
+
+// - - - - -  friBane2 - - - -
+
+function friBane2() {
+	console.log("friBane2");
+
+	$("#kanin_sprite").off("animationend", friBane2);
+
+	// slut sprite-aniamtion: kanin_drej_i_luften
+	$("#kanin_sprite").removeClass("kanin_drej_i_luften_win");
+
+	// start sprite-aniamtion: kanin_hop_glad
+	$("#kanin_sprite").addClass("kanin_hop_glad");
+
+	// kaninen har hoppet glad
+	$("#kanin_sprite").on("animationend", vundetLet);
+}
+
+// - - - - -  VundetLet - - - -
+
+function vundetLet() {
+	console.log("friBane2");
+
+	$("#kanin_sprite").off("animationend", vundetLet);
+
+	// vis vundet let-skilt
+	$("#vundet_let_skilt").removeClass("skjult");
+	$("#vundet_let_skilt").addClass("synlig");
+
+	// vis nedtoning
+	$("#nedtoning").removeClass("skjult");
+	$("#nedtoning").addClass("synlig");
+
+	// Der er klikket på knap
+	$("#vundet_let_knap").on("click", vundetLetKlikPaaKnap);
+
+	// Der er klikket på tekst
+	$("#vundet_let_tekst").on("click", vundetLetKlikPaaKnap);
+}
+
+// - - - - -  GameOverKlikPaaKnap - - - -
+
+function vundetLetKlikPaaKnap() {
+	console.log("GameOverKlikPaaKnap");
+
+	$("#vundet_let_knap").off("click", vundetLetKlikPaaKnap);
+	$("#vundet_let_tekst").off("click", vundetLetKlikPaaKnap);
+
+	// knaplyd effekt_bank spilles
+	$("#effekt_bank")[0].play();
+
+	//  Når lyden har spillet spillet
+	$("#effekt_bank").on("ended", reloadPage);
+}
+
 
 // - - - - -  taktikValgKlikPaaKnapB - - - - -
 
@@ -1329,7 +1393,7 @@ function kungFuPlan() {
 function gameOver() {
 	console.log("gameOver");
 
-	// vis gameInfo-skilt
+	// vis game over-skilt
 	$("#game_over_skilt").removeClass("skjult");
 	$("#game_over_skilt").addClass("synlig");
 
@@ -1338,19 +1402,19 @@ function gameOver() {
 	$("#nedtoning").addClass("synlig");
 
 	// Der er klikket på knap
-	$("#game_over_knap").on("click", GameOverKlikPaaKnap);
+	$("#game_over_knap").on("click", gameOverKlikPaaKnap);
 
 	// Der er klikket på tekst
-	$("#game_over_tekst").on("click", GameOverKlikPaaKnap);
+	$("#game_over_tekst").on("click", gameOverKlikPaaKnap);
 }
 
 // - - - - -  GameOverKlikPaaKnap - - - -
 
-function GameOverKlikPaaKnap() {
+function gameOverKlikPaaKnap() {
 	console.log("GameOverKlikPaaKnap");
 
-	$("#game_over_knap").off("click", GameOverKlikPaaKnap);
-	$("#game_over_tekst").off("click", GameOverKlikPaaKnap);
+	$("#game_over_knap").off("click", gameOverKlikPaaKnap);
+	$("#game_over_tekst").off("click", gameOverKlikPaaKnap);
 
 	// knaplyd effekt_bank spilles
 	$("#effekt_bank")[0].play();
