@@ -1052,6 +1052,15 @@ function gameInfo() {
 	// Start tæller
 	$("#info_countdown_sprite").addClass("info_countdown_do");
 
+	// Slut kanin possition: kanin_mark_possition_6
+	$("#kanin_container").removeClass("kanin_mark_possition_6");
+
+	// Start kanin possition: .kanin_game_possition
+	$("#kanin_container").addClass("kanin_game_possition");
+
+	// Start mobil_game_possition
+	$("#mobil_container").addClass("mobil_game_possition");
+
 	// - - -
 
 	// Når tæller er færdig
@@ -1077,12 +1086,6 @@ function GameSetup() {
 
 	// begynd: kanin mobil_size
 	$("#kanin_sprite").addClass("kanin_mobil_size");
-
-	// Slut kanin possition: kanin_mark_possition_6
-	$("#kanin_container").removeClass("kanin_mark_possition_6");
-
-	// Start kanin possition: .kanin_game_possition
-	$("#kanin_container").addClass("kanin_game_possition");
 
 	// Gå til gameBegyndTimer
 	gameBegyndTimer();
@@ -1173,7 +1176,63 @@ function gameTabt() {
 	document.getElementById("drag5").draggable = false;
 	document.getElementById("drag6").draggable = false;
 	document.getElementById("drag7").draggable = false;
+
+	// Sæt censur_skilt possition
+	$("#censur_container").addClass("censur_possition");
+
+	// - - -
+
+	jaegerSkyder();
 }
+
+// - - - - -  jaegerSkyder - - - -
+
+function jaegerSkyder() {
+	console.log("jaegerSkyder");
+
+	$("#mobil_container").off("animationend", jaegerSkyder);
+
+	// - - -
+
+	// start cenasurskilt-move: censur_cover
+	$("#censur_container").addClass("censur_cover");
+
+	// slut jaeger sprite-frame: jaeger_vaagen
+	$("#jaeger_sprite").removeClass("jaeger_vaagen_gal_2");
+
+	// start sprite-animation: jaeger_skyder
+	$("#jaeger_sprite").addClass("jaeger_skyder");
+
+	// Start lyd effekt_skud
+	$("#effekt_skud")[0].play();
+	$("#effekt_skud")[0].volume = 0.5;
+
+	// jaeger har skudt
+	$("#jaeger_sprite").on("animationend", efterSkud);
+
+}
+
+// - - - - -  efterSkud - - - -
+
+function efterSkud() {
+	console.log("efterSkud");
+
+	$("#jaeger_sprite").off("animationend", efterSkud);
+
+	// Slut sprite-animation: jaeger_skyder
+	$("#jaeger_sprite").removeClass("jaeger_skyder");
+
+	// Start Jaeger sprite frame: jaeger_sidder_stille
+	$("#jaeger_sprite").addClass("jaeger_sidder_stille");
+
+	// Slut lyd effekt_skud
+	$("effekt_skud").off("ended");
+
+	//efter 4 sec gå til fail
+	var myTimer = setTimeout(gameOver, 4000);
+}
+
+
 
 //- - - - - - gameVundet - - - - - -
 
@@ -1259,6 +1318,10 @@ function kungFuPlan() {
 	//	$("#effekt_kaninhop")[0].volume = 0.1;
 
 	// - - - trigger
+}
 
+// - - - - -  GameOver - - - -
 
+function GameOver() {
+	console.log("GameOver");
 }
